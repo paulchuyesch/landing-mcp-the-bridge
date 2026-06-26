@@ -1,0 +1,130 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Integraciones THE BRIDGE',
+  description: 'Conectores disponibles y roadmap para integrar e-commerce con THE BRIDGE.',
+  inLanguage: 'es',
+};
+---
+
+<SitePageLayout
+  title="Integraciones | THE BRIDGE"
+  description="Integraciones disponibles y roadmap de conectores para THE BRIDGE."
+  jsonLd={schema}
+>
+  <PageHero
+    eyebrow="Integraciones"
+    title="Conecta tu stack comercial sin fricción"
+    description="Comienza con WooCommerce y prepara tu operación para nuevos conectores. El objetivo es unificar el acceso agéntico al catálogo sin dependencia del frontend público."
+    ctas={[
+      { href: '/integraciones/woocommerce', label: 'WooCommerce', tone: 'primary' },
+      { href: '/docs/quickstart', label: 'Quickstart', tone: 'secondary' },
+    ]}
+  />
+
+  <section class="border-b border-border">
+    <div class="container mx-auto px-6 py-14 grid gap-6 md:grid-cols-2">
+      <article class="surface-card p-6">
+        <p class="type-micro text-xs text-foreground-subtle uppercase mb-3">Disponible</p>
+        <h2 class="text-3xl font-bold mb-3">WooCommerce</h2>
+        <p class="text-foreground-muted mb-6">Integración oficial para sincronizar catálogo, precio, variantes e inventario en tiempo real.</p>
+        <a href="/integraciones/woocommerce" class="btn-primary">Ver integración</a>
+      </article>
+
+      <article class="surface-card p-6">
+        <p class="type-micro text-xs text-foreground-subtle uppercase mb-3">Roadmap</p>
+        <h2 class="text-3xl font-bold mb-3">Shopify</h2>
+        <p class="text-foreground-muted mb-6">Conector en progreso para replicar el mismo modelo AEO y las herramientas MCP del ecosistema Bridge.</p>
+        <a href="/integraciones/shopify" class="btn-secondary">Ver estado</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="border-b border-border bg-background-secondary">
+    <div class="container mx-auto px-6 py-14 lg:py-20">
+      <div class="max-w-3xl mb-12">
+        <p class="type-micro text-xs uppercase tracking-[0.18em] text-foreground-subtle mb-4">Arquitectura</p>
+        <h2 class="text-3xl font-bold mb-4">¿Cómo conectamos tu tienda?</h2>
+        <p class="text-foreground-muted">THE BRIDGE actúa como una capa de traducción entre la estructura de tu e-commerce y el lenguaje que entienden los agentes de IA.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 text-center relative">
+        <div class="hidden md:block absolute top-[5.5rem] left-[15%] right-[15%] h-px bg-border -z-10"></div>
+        <div class="bg-background border border-border p-8 shadow-sm">
+          <div class="w-16 h-16 bg-background-tertiary mx-auto flex items-center justify-center rounded-full mb-6 border border-border">
+            <span class="text-xl font-bold">1</span>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Tu Tienda</h3>
+          <p class="text-sm text-foreground-muted">WooCommerce gestiona tu catálogo, precios e inventario como siempre.</p>
+        </div>
+        <div class="bg-background border border-orange-500/30 p-8 shadow-lg shadow-orange-500/5 relative">
+          <div class="w-16 h-16 bg-orange-500 mx-auto flex items-center justify-center rounded-full mb-6 border border-orange-400 text-white shadow-inner">
+            <span class="text-xl font-bold">2</span>
+          </div>
+          <h3 class="font-bold text-lg mb-2 text-orange-500">THE BRIDGE</h3>
+          <p class="text-sm text-foreground-muted">Extrae solo los datos relevantes (sin diseño) y los expone a través de un servidor MCP.</p>
+        </div>
+        <div class="bg-background border border-border p-8 shadow-sm">
+          <div class="w-16 h-16 bg-background-tertiary mx-auto flex items-center justify-center rounded-full mb-6 border border-border">
+            <span class="text-xl font-bold">3</span>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Agentes IA</h3>
+          <p class="text-sm text-foreground-muted">ChatGPT, Claude y agentes autónomos consultan THE BRIDGE para recomendar y comprar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-border bg-background">
+    <div class="container mx-auto px-6 py-14 lg:py-20">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold mb-6">¿Por qué empezamos con WooCommerce?</h2>
+          <p class="text-foreground-muted mb-6 leading-relaxed">Más del 30% de los e-commerces mundiales funcionan con WooCommerce. Es un ecosistema abierto que sufre especialmente los bloqueos de bots tradicionales y los problemas de rendimiento al ser scrapeado.</p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3"><span class="text-orange-500 mt-1 font-bold">→</span> <span class="text-foreground-muted text-sm leading-relaxed"><strong>Democratización:</strong> Cualquier tienda, sin importar su tamaño, puede unirse a la red AEO.</span></li>
+            <li class="flex items-start gap-3"><span class="text-orange-500 mt-1 font-bold">→</span> <span class="text-foreground-muted text-sm leading-relaxed"><strong>Control total:</strong> Al ser open-source, pudimos crear un plugin que respeta tu infraestructura y tus datos.</span></li>
+            <li class="flex items-start gap-3"><span class="text-orange-500 mt-1 font-bold">→</span> <span class="text-foreground-muted text-sm leading-relaxed"><strong>Protección urgente:</strong> Las tiendas Woo son las más afectadas por el tráfico basura de las IAs.</span></li>
+          </ul>
+        </div>
+        <div class="bg-background-secondary p-8 border border-border">
+          <h3 class="text-xl font-bold mb-6">Roadmap de Plataformas</h3>
+          <div class="space-y-6">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="font-semibold text-foreground">WooCommerce</span>
+                <span class="text-xs bg-status-stable/20 text-status-stable px-2 py-1 uppercase tracking-widest font-mono rounded-sm">Lanzado</span>
+              </div>
+              <div class="w-full bg-border h-1.5 rounded-full overflow-hidden"><div class="bg-status-stable h-full w-full"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="font-semibold text-foreground">Shopify</span>
+                <span class="text-xs bg-orange-500/20 text-orange-500 px-2 py-1 uppercase tracking-widest font-mono rounded-sm">Q3 2026</span>
+              </div>
+              <div class="w-full bg-border h-1.5 rounded-full overflow-hidden"><div class="bg-orange-500 h-full w-[35%]"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="font-semibold text-foreground">PrestaShop</span>
+                <span class="text-xs bg-foreground-subtle/20 text-foreground-subtle px-2 py-1 uppercase tracking-widest font-mono rounded-sm">Planeado</span>
+              </div>
+              <div class="w-full bg-border h-1.5 rounded-full overflow-hidden"><div class="bg-foreground-subtle h-full w-[5%]"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="font-semibold text-foreground">Magento / Adobe</span>
+                <span class="text-xs bg-foreground-subtle/20 text-foreground-subtle px-2 py-1 uppercase tracking-widest font-mono rounded-sm">Planeado</span>
+              </div>
+              <div class="w-full bg-border h-1.5 rounded-full overflow-hidden"><div class="bg-foreground-subtle h-full w-[0%]"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</SitePageLayout>

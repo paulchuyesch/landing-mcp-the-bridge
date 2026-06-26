@@ -1,0 +1,72 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: 'Webhooks THE BRIDGE',
+  description: 'Guía de eventos, firma e idempotencia para sincronización en tiempo real.',
+  inLanguage: 'es',
+};
+---
+
+<SitePageLayout
+  title="Webhooks | Docs THE BRIDGE"
+  description="Eventos webhook y políticas de seguridad para sincronización en tiempo real con firma, retries e idempotencia."
+  jsonLd={schema}
+>
+  <PageHero
+    eyebrow="Docs / Webhooks"
+    title="Sincronización confiable en tiempo real"
+    description="Implementa verificación de firma HMAC, deduplicación e ingeniería de retries para mantener consistencia bajo carga."
+    ctas={[
+      { href: '/docs/auth', label: 'Firmas y secretos', tone: 'secondary' },
+      { href: '/docs/errors', label: 'Errores comunes', tone: 'primary' },
+    ]}
+  />
+
+  <section class="border-b border-border">
+    <div class="container mx-auto px-6 py-14 grid gap-6 md:grid-cols-3">
+      <article class="surface-card p-6">
+        <h2 class="text-xl font-semibold mb-3">Firma HMAC</h2>
+        <p class="text-foreground-muted">Header esperado: <span class="doc-kbd">x-bridge-signature</span> con hash SHA-256 del payload.</p>
+      </article>
+      <article class="surface-card p-6">
+        <h2 class="text-xl font-semibold mb-3">Idempotencia</h2>
+        <p class="text-foreground-muted">Usa <span class="doc-kbd">x-event-id</span> para ignorar eventos repetidos en ventanas cortas.</p>
+      </article>
+      <article class="surface-card p-6">
+        <h2 class="text-xl font-semibold mb-3">Retries</h2>
+        <p class="text-foreground-muted">Aplica exponential backoff con jitter para evitar tormentas de reintento.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="border-b border-border">
+    <div class="container mx-auto px-6 py-14 grid gap-6 lg:grid-cols-2">
+      <article class="surface-card p-6">
+        <h2 class="text-xl font-semibold mb-3">Payload de ejemplo</h2>
+        <pre class="doc-code"><code>{`{
+  "event": "inventory.updated",
+  "store_uuid": "store_abc123",
+  "event_id": "evt_91fa",
+  "occurred_at": "2026-02-28T20:10:00Z",
+  "data": {
+    "sku": "SKU-001",
+    "stock": 10
+  }
+}`}</code></pre>
+      </article>
+      <article class="surface-card p-6">
+        <h2 class="text-xl font-semibold mb-3">Respuesta recomendada</h2>
+        <pre class="doc-code"><code>{`HTTP/1.1 202 Accepted
+{
+  "accepted": true,
+  "event_id": "evt_91fa"
+}`}</code></pre>
+        <p class="text-foreground-muted mt-4">Si no puedes procesar en línea, encola y responde `202` para preservar disponibilidad.</p>
+      </article>
+    </div>
+  </section>
+</SitePageLayout>

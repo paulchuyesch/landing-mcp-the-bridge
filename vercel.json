@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/casos-de-uso/startups-ia",
+      "destination": "/casos-de-uso",
+      "permanent": true
+    },
+    {
       "source": "/:path((?!api/).*)",
       "has": [
         {

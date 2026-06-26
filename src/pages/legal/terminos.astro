@@ -1,0 +1,36 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+---
+
+<SitePageLayout title="Términos | THE BRIDGE" description="Términos y condiciones de THE BRIDGE.">
+  <PageHero
+    eyebrow="Legal / Términos"
+    title="Términos de uso"
+    description="El uso del plugin y servicios de THE BRIDGE implica aceptación de condiciones técnicas, operativas y de cumplimiento."
+  />
+
+  <section class="border-b border-border bg-background">
+    <div class="container mx-auto px-6 py-14 max-w-4xl space-y-12">
+      <div class="prose prose-invert max-w-none text-foreground-muted">
+        <p class="text-lg leading-relaxed text-foreground">Al utilizar THE BRIDGE (incluyendo nuestro plugin para WooCommerce, futuras integraciones y API MCP), aceptas regirte por los siguientes Términos de Servicio. Por favor, léelos cuidadosamente.</p>
+        
+        <h2 class="text-2xl font-bold text-foreground mt-10 mb-4">1. Uso del Servicio</h2>
+        <p>THE BRIDGE es una infraestructura de intermediación que permite exponer el catálogo de tu tienda a sistemas y agentes de Inteligencia Artificial. Te otorgamos una licencia limitada, no exclusiva e intransferible para usar nuestro servicio exclusivamente para conectar tu propia tienda en línea.</p>
+
+        <h2 class="text-2xl font-bold text-foreground mt-10 mb-4">2. Responsabilidades del Usuario</h2>
+        <ul class="list-disc pl-6 space-y-2 mt-4 mb-6">
+          <li><strong>Autenticidad de los datos:</strong> Eres responsable de garantizar que los datos de tu catálogo sean precisos. THE BRIDGE solo transmite la información que tu tienda nos provee.</li>
+          <li><strong>Seguridad de credenciales:</strong> Eres responsable de mantener la confidencialidad de tus tokens de API.</li>
+          <li><strong>Uso aceptable:</strong> Queda prohibido utilizar nuestra infraestructura para fines ilícitos o someter a la API a ataques de denegación de servicio (DDoS).</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-foreground mt-10 mb-4">3. Disponibilidad y Límites (SLA)</h2>
+        <p>Nos esforzamos por mantener un 99.99% de tiempo de actividad en nuestros nodos. En los planes gratuitos o sin tarifa plana, THE BRIDGE se reserva el derecho de aplicar límites de tasa (rate limiting) para asegurar la estabilidad de la red global.</p>
+
+        <h2 class="text-2xl font-bold text-foreground mt-10 mb-4">4. Modificaciones al Servicio</h2>
+        <p>El ecosistema de IA evoluciona rápidamente. THE BRIDGE puede actualizar, modificar o descontinuar temporalmente ciertas funcionalidades del servicio para adaptarse a nuevos protocolos. Intentaremos notificar cualquier cambio importante con la mayor antelación posible.</p>
+      </div>
+    </div>
+  </section>
+</SitePageLayout>

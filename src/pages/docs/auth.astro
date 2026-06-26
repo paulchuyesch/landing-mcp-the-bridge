@@ -1,0 +1,70 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: 'Autenticación THE BRIDGE',
+  description: 'Modelo de autenticación y rotación de secretos para API y webhooks.',
+  inLanguage: 'es',
+};
+---
+
+<SitePageLayout
+  title="Auth | Docs THE BRIDGE"
+  description="Autenticación de THE BRIDGE para requests API y validación de webhooks."
+  jsonLd={schema}
+>
+  <PageHero
+    eyebrow="Docs / Auth"
+    title="Autenticación para API y eventos"
+    description="Protege tu integración con API keys por tienda, rotación periódica de secretos y verificación de firma en webhooks."
+    ctas={[
+      { href: '/docs/api-reference', label: 'Ver API Reference', tone: 'secondary' },
+      { href: '/docs/webhooks', label: 'Ver Webhooks', tone: 'primary' },
+    ]}
+  />
+
+  <section class="border-b border-border">
+    <div class="container mx-auto px-6 py-14 grid gap-6 lg:grid-cols-2">
+      <article class="surface-card p-6">
+        <h2 class="text-xl font-semibold mb-3">Autenticación Dual (API Keys)</h2>
+        <p class="text-foreground-muted mb-4 text-sm leading-relaxed">Soportamos dos tipos de credenciales para distintos casos de uso:</p>
+        <ul class="space-y-3 mb-4">
+          <li>
+            <span class="text-foreground font-mono text-sm bg-background-subtle px-1 rounded border border-border">mcp_live_...</span>
+            <p class="text-sm text-foreground-muted mt-1">Acceso completo sin límites artificiales. Para servidores y backends confiables.</p>
+          </li>
+          <li>
+            <span class="text-foreground font-mono text-sm bg-background-subtle px-1 rounded border border-border">mcp_guest_...</span>
+            <p class="text-sm text-foreground-muted mt-1">Tokens temporales con <em>cooldown algorítmico</em> y límites estrictos anti-scraping secuencial. Para compartir con clientes de IA no confiables.</p>
+          </li>
+        </ul>
+        <pre class="doc-code"><code>{`x-mcp-bridge-key: mcp_live_xxxxx
+x-mcp-store-id: store_abc123
+content-type: application/json`}</code></pre>
+      </article>
+      <article class="surface-card p-6">
+        <h2 class="text-xl font-semibold mb-3">Rotación recomendada</h2>
+        <ul class="space-y-3 text-foreground-muted leading-relaxed">
+          <li>Rotar API keys cada 90 días.</li>
+          <li>Revocar claves ante sospecha de exposición.</li>
+          <li>Separar claves por entorno (dev, staging, prod).</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="border-b border-border">
+    <div class="container mx-auto px-6 py-14">
+      <article class="surface-card p-6">
+        <h2 class="text-xl font-semibold mb-3">Validación de firma webhook</h2>
+        <pre class="doc-code"><code>{`const expected = hmacSHA256(rawBody, WEBHOOK_SECRET)
+if (headerSignature !== expected) {
+  return 401
+}`}</code></pre>
+      </article>
+    </div>
+  </section>
+</SitePageLayout>

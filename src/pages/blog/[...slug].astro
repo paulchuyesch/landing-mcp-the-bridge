@@ -23,21 +23,21 @@ const jsonLd = {
   "datePublished": post.data.date.toISOString(),
   "author": {
     "@type": "Organization",
-    "name": "VENORE"
+    "name": "THE BRIDGE"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "VENORE",
-    "url": "https://venore.app"
+    "name": "THE BRIDGE",
+    "url": "https://thebridge.app"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": `https://venore.app/blog/${post.slug}`
+    "@id": `https://thebridge.app/blog/${post.slug}`
   }
 };
 ---
 
-<Layout title={`${post.data.title} | VENORE Blog`} description={post.data.description}>
+<Layout title={`${post.data.title} | THE BRIDGE Blog`} description={post.data.description}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <div class="min-h-screen flex flex-col">
   <Navbar client:load />

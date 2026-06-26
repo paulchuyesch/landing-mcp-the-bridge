@@ -8,9 +8,9 @@ export async function GET(context: APIContext) {
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
   return rss({
-    title: 'VENORE Blog',
-    description: 'Development updates, technical insights, and progress on VENORE.',
-    site: context.site ?? 'https://venore.app',
+    title: 'THE BRIDGE Blog',
+    description: 'Development updates, technical insights, and progress on THE BRIDGE.',
+    site: context.site ?? 'https://thebridge.app',
     items: posts.map((post) => ({
       title: post.data.title,
       pubDate: post.data.date,

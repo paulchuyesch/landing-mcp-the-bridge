@@ -1,0 +1,148 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'THE BRIDGE',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  description: 'Infraestructura de comunicación para conectar e-commerce con asistentes de IA.',
+  inLanguage: 'es',
+};
+---
+
+<SitePageLayout
+  title="Producto | THE BRIDGE"
+  description="El canal de datos oficial para que los asistentes de IA conozcan y recomienden tus productos sin errores."
+  jsonLd={schema}
+>
+  <PageHero
+    eyebrow="Optimización para Motores Agénticos (AEO)"
+    title="El canal de datos oficial para que los asistentes de IA vendan tus productos"
+    description="THE BRIDGE transforma tu tienda online en una fuente de información de alto rendimiento para la Inteligencia Artificial. Expón tu inventario, precios y detalles de productos en tiempo real, con control absoluto sobre lo que muestras y protección total ante sobrecargas."
+    ctas={[
+      { href: '/descargar', label: 'Conectar WooCommerce', tone: 'primary' },
+      { href: '/docs/arquitectura-aeo', label: 'Ver guías de integración', tone: 'secondary' },
+    ]}
+  />
+
+  {/* Dolor vs Solución */}
+  <section class="border-b border-border bg-background-secondary">
+    <div class="container mx-auto px-6 py-16">
+      <div class="max-w-3xl mb-12">
+        <p class="type-micro text-xs text-foreground-subtle uppercase mb-3">La evolución del canal</p>
+        <h2 class="text-3xl font-bold tracking-tight">¿Por qué los métodos tradicionales están fallando?</h2>
+        <p class="text-foreground-muted mt-3">Las inteligencias artificiales no navegan tu tienda igual que un cliente humano. Tratar de extraer la información leyendo el código visual de tu web es lento, inestable y puede provocar bloqueos.</p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2">
+        <article class="surface-card p-8 border-l-2 border-l-status-critical/60">
+          <p class="type-micro text-xs text-status-critical uppercase mb-2">El problema común</p>
+          <h3 class="text-xl font-bold mb-4 text-foreground">Extracción de datos externa</h3>
+          <ul class="space-y-3 text-foreground-muted text-sm">
+            <li class="flex items-start gap-2">
+              <span class="text-status-critical font-bold mt-0.5">✕</span>
+              <span><strong>Fallas por cambios visuales:</strong> Un pequeño cambio en el diseño o textos de tu web rompe la lectura automática de la IA.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-status-critical font-bold mt-0.5">✕</span>
+              <span><strong>Servidores lentos:</strong> Los bots que intentan leer tu página constantemente consumen recursos y ralentizan las compras de tus clientes reales.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-status-critical font-bold mt-0.5">✕</span>
+              <span><strong>Información incorrecta:</strong> Los asistentes de IA pueden alucinar y recomendar productos agotados o precios desactualizados.</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="surface-card p-8 border-l-2 border-l-status-stable/60">
+          <p class="type-micro text-xs text-status-stable uppercase mb-2">La solución oficial</p>
+          <h3 class="text-xl font-bold mb-4 text-foreground">THE BRIDGE</h3>
+          <ul class="space-y-3 text-foreground-muted text-sm">
+            <li class="flex items-start gap-2">
+              <span class="text-status-stable font-bold mt-0.5">✓</span>
+              <span><strong>Integración directa:</strong> Conexión mediante el nuevo estándar oficial de comunicación para Inteligencia Artificial.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-status-stable font-bold mt-0.5">✓</span>
+              <span><strong>Exposición pasiva:</strong> Consultas limpias respondidas de inmediato sin necesidad de cargar elementos visuales de la web.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-status-stable font-bold mt-0.5">✓</span>
+              <span><strong>Inventario confiable:</strong> Respuestas ordenadas y consistentes que garantizan que la IA siempre ofrezca datos reales.</span>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {/* Pilares Técnicos de la Infraestructura */}
+  <section class="border-b border-border">
+    <div class="container mx-auto px-6 py-16">
+      <div class="max-w-3xl mb-12">
+        <p class="type-micro text-xs text-foreground-subtle uppercase mb-3">Capacidades del Core</p>
+        <h2 class="text-3xl font-bold tracking-tight">Control y gobernanza de tus catálogos para el comercio autónomo</h2>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <article class="surface-card p-6">
+          <p class="type-micro text-xs text-foreground-subtle uppercase mb-3">Control de Visibilidad</p>
+          <h3 class="text-xl font-semibold mb-3">Límites dinámicos de catálogo</h3>
+          <p class="text-foreground-muted leading-relaxed text-sm">
+            El sistema evalúa de forma inteligente la relevancia de tus productos (analizando stock, frescura y ventas) para destacar tus productos comerciales prioritarios ante los asistentes de IA, manteniendo el excedente a la espera de una ampliación.
+          </p>
+        </article>
+
+        <article class="surface-card p-6">
+          <p class="type-micro text-xs text-foreground-subtle uppercase mb-3">Seguridad y Privacidad</p>
+          <h3 class="text-xl font-semibold mb-3">Permisos de acceso inteligentes</h3>
+          <p class="text-foreground-muted leading-relaxed text-sm">
+            Establece un control total de quién consulta tu tienda. Genera enlaces restringidos de lectura rápida para asistentes e invitados de prueba, y reserva accesos comerciales exclusivos de alta confianza para tus integraciones oficiales de venta.
+          </p>
+        </article>
+
+        <article class="surface-card p-6 md:col-span-2 xl:col-span-1">
+          <p class="type-micro text-xs text-foreground-subtle uppercase mb-3">Protección Activa</p>
+          <h3 class="text-xl font-semibold mb-3">Protección contra descargas masivas</h3>
+          <p class="text-foreground-muted leading-relaxed text-sm">
+            Evita que competidores o bots extraigan tus datos de forma maliciosa. El sistema detecta comportamientos repetitivos de consulta rápida y bloquea a los bots sospechosos aplicando límites y tiempos de espera automáticos para proteger tu servidor.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {/* Stack Funcional y Resiliencia IT */}
+  <section class="border-b border-border bg-foreground text-background">
+    <div class="container mx-auto px-6 py-16 grid gap-8 lg:grid-cols-2">
+      <div>
+        <p class="type-micro text-xs text-background/70 uppercase mb-3">Estabilidad Garantizada</p>
+        <h2 class="text-3xl md:text-4xl font-bold leading-tight">Arquitectura robusta para soportar tráfico de alta escala</h2>
+        <p class="text-background/75 mt-4 text-sm leading-relaxed">
+          THE BRIDGE está construido bajo estándares empresariales de fiabilidad. Diseñado para responder a ráfagas masivas de consultas agénticas sin afectar la navegación ni las compras de tus usuarios.
+        </p>
+      </div>
+      <ul class="space-y-5 text-background/80">
+        <li class="flex gap-3">
+          <span class="mt-2 h-px w-3 bg-background/40"></span>
+          <span><strong>Cola de sincronización persistente:</strong> La actualización de tus productos no sobrecarga tu servidor web; se guarda de forma segura para garantizar que ningún cambio de stock se pierda en el camino.</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-2 h-px w-3 bg-background/40"></span>
+          <span><strong>Bandeja de incidencias aisladas:</strong> Cualquier error ocasional de conexión con tu inventario se aparta automáticamente en una zona segura de diagnóstico sin detener el flujo de ventas general.</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-2 h-px w-3 bg-background/40"></span>
+          <span><strong>Sincronización instantánea de stock:</strong> Mantiene tu tienda al día frente a las compras realizadas por asistentes automáticos enviando notificaciones inmediatas ante cualquier cambio físico de stock.</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-2 h-px w-3 bg-background/40"></span>
+          <span><strong>Panel de control y rendimiento:</strong> Supervisa de forma visual el volumen de consultas que hacen los asistentes de IA a tu catálogo y detecta anomalías o alertas de inmediato.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+</SitePageLayout>

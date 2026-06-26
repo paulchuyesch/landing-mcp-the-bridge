@@ -1,0 +1,48 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: 'Arquitectura AEO THE BRIDGE',
+  description: 'Arquitectura para traducir catálogo e inventario a contexto nativo para agentes IA.',
+  inLanguage: 'es',
+};
+---
+
+<SitePageLayout
+  title="Arquitectura AEO | Docs THE BRIDGE"
+  description="Modelo arquitectónico AEO de THE BRIDGE para interoperabilidad con agentes IA y decisiones de compra autónoma."
+  jsonLd={schema}
+>
+  <PageHero
+    eyebrow="Docs / Arquitectura"
+    title="AEO: del HTML caótico a contexto accionable"
+    description="La capa AEO estandariza semántica de catálogo, inventario y señales de negocio para consumo confiable por agentes IA."
+    ctas={[
+      { href: '/producto', label: 'Volver a producto', tone: 'secondary' },
+      { href: '/docs/quickstart', label: 'Implementar ahora', tone: 'primary' },
+    ]}
+  />
+
+  <section class="border-b border-border bg-background-secondary">
+    <div class="container mx-auto px-6 py-14 grid gap-8 lg:grid-cols-3">
+      <article class="surface-card-dark p-6">
+        <p class="type-micro text-xs uppercase text-foreground-subtle mb-2">Capa 01</p>
+        <h2 class="text-xl font-semibold mb-3">Extracción</h2>
+        <p class="text-foreground-muted">Normaliza catálogo, variaciones, precios y stock desde fuentes de tienda.</p>
+      </article>
+      <article class="surface-card-dark p-6">
+        <p class="type-micro text-xs uppercase text-foreground-subtle mb-2">Capa 02</p>
+        <h2 class="text-xl font-semibold mb-3">Orquestación</h2>
+        <p class="text-foreground-muted">Expone herramientas MCP, autentica solicitudes y controla la carga.</p>
+      </article>
+      <article class="surface-card-dark p-6">
+        <p class="type-micro text-xs uppercase text-foreground-subtle mb-2">Capa 03</p>
+        <h2 class="text-xl font-semibold mb-3">Consumo agéntico</h2>
+        <p class="text-foreground-muted">Permite cotización, recomendación y compra asistida con datos verificables.</p>
+      </article>
+    </div>
+  </section>
+</SitePageLayout>

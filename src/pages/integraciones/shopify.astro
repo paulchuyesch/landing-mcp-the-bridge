@@ -1,0 +1,113 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+---
+
+<SitePageLayout
+  title="Shopify | Integraciones THE BRIDGE"
+  description="Estado de la integración Shopify en THE BRIDGE."
+>
+  <PageHero
+    eyebrow="Integración Shopify"
+    title="Conector en progreso"
+    description="La integración Shopify está en roadmap activo. Mantendremos el mismo estándar: datos estructurados, operaciones seguras y herramientas MCP listas para producción."
+    ctas={[
+      { href: '/contacto', label: 'Solicitar acceso temprano', tone: 'primary' },
+      { href: '/estado', label: 'Ver estado del producto', tone: 'secondary' },
+    ]}
+  />
+
+  <section class="border-b border-border bg-background">
+    <div class="container mx-auto px-6 py-14 lg:py-20">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-3xl font-bold mb-6">Timeline estimado</h2>
+          <p class="text-foreground-muted mb-12">Estamos construyendo la App de Shopify para que cumpla con los mismos estándares de seguridad y rendimiento que nuestra integración de WooCommerce.</p>
+          
+          <div class="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-border">
+            
+            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+              <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-background bg-status-stable text-background shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                <span class="text-xs font-bold">✓</span>
+              </div>
+              <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-5 surface-card">
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="font-bold">Análisis de APIs</h3>
+                  <time class="text-xs text-foreground-subtle font-mono">Q1 2026</time>
+                </div>
+                <p class="text-sm text-foreground-muted">Evaluación de GraphQL Admin API para streaming eficiente de catálogo y variantes.</p>
+              </div>
+            </div>
+            
+            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+              <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-background bg-orange-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                <span class="text-xs font-bold">2</span>
+              </div>
+              <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-5 surface-card border border-orange-500/30">
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="font-bold text-orange-400">Desarrollo Core</h3>
+                  <time class="text-xs text-orange-400 font-mono">Actual</time>
+                </div>
+                <p class="text-sm text-foreground-muted">Construcción de la aplicación privada, webhooks de inventario y autenticación segura.</p>
+              </div>
+            </div>
+            
+            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+              <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-background bg-background-tertiary text-foreground-subtle shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                <span class="text-xs font-bold">3</span>
+              </div>
+              <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-5 border border-border bg-background-secondary opacity-70">
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="font-bold text-foreground-subtle">Beta Cerrada</h3>
+                  <time class="text-xs text-foreground-subtle font-mono">Q2 2026</time>
+                </div>
+                <p class="text-sm text-foreground-muted">Pruebas controladas con 50 tiendas Shopify Plus seleccionadas. Afinación de carga.</p>
+              </div>
+            </div>
+            
+            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+              <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-background bg-background-tertiary text-foreground-subtle shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                <span class="text-xs font-bold">4</span>
+              </div>
+              <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-5 border border-border bg-background-secondary opacity-70">
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="font-bold text-foreground-subtle">Lanzamiento Público</h3>
+                  <time class="text-xs text-foreground-subtle font-mono">Q3 2026</time>
+                </div>
+                <p class="text-sm text-foreground-muted">Disponibilidad general en el Shopify App Store para todas las tiendas.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-center lg:justify-end">
+          <div class="bg-background-secondary border border-border p-8 w-full max-w-md shadow-xl">
+            <h2 class="text-2xl font-bold mb-2">Únete a la lista de espera</h2>
+            <p class="text-sm text-foreground-muted mb-6">Asegura tu plaza para la beta cerrada y recibe actualizaciones sobre el desarrollo.</p>
+            
+            <form class="space-y-5" onsubmit="event.preventDefault(); alert('Gracias por tu interés. Te hemos añadido a la lista de espera.');">
+              <div>
+                <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-foreground-subtle mb-2">Email profesional</label>
+                <input type="email" id="email" class="w-full bg-background border border-border px-4 py-3 text-sm text-foreground focus:border-orange-500 focus:outline-none transition-colors" placeholder="tu@empresa.com" required>
+              </div>
+              <div>
+                <label for="store_url" class="block text-xs font-semibold uppercase tracking-wider text-foreground-subtle mb-2">URL de tu tienda Shopify</label>
+                <input type="url" id="store_url" class="w-full bg-background border border-border px-4 py-3 text-sm text-foreground focus:border-orange-500 focus:outline-none transition-colors" placeholder="https://tumarca.myshopify.com" required>
+              </div>
+              <div>
+                <label for="volume" class="block text-xs font-semibold uppercase tracking-wider text-foreground-subtle mb-2">Volumen de productos</label>
+                <select id="volume" class="w-full bg-background border border-border px-4 py-3 text-sm text-foreground focus:border-orange-500 focus:outline-none transition-colors">
+                  <option value="1-100">1 - 100 productos</option>
+                  <option value="101-1000">101 - 1,000 productos</option>
+                  <option value="1000+">Más de 1,000 productos</option>
+                </select>
+              </div>
+              <button type="submit" class="h-12 w-full bg-foreground text-background text-sm font-semibold hover:bg-foreground/90 transition-colors inline-flex items-center justify-center mt-2">Solicitar Acceso Temprano</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</SitePageLayout>

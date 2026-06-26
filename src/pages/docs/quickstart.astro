@@ -1,0 +1,78 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: 'Quickstart THE BRIDGE',
+  description: 'Guía rápida para instalar y validar THE BRIDGE con WooCommerce.',
+  inLanguage: 'es',
+};
+---
+
+<SitePageLayout
+  title="Quickstart | Docs THE BRIDGE"
+  description="Guía rápida de instalación y activación de THE BRIDGE con pasos, variables y pruebas de validación."
+  jsonLd={schema}
+>
+  <PageHero
+    eyebrow="Docs / Quickstart"
+    title="Primer flujo operativo en menos de 15 minutos"
+    description="Instala plugin, configura autenticación y valida herramientas MCP con respuestas reales de catálogo e inventario."
+    ctas={[
+      { href: '/descargar', label: 'Descargar plugin', tone: 'primary' },
+      { href: '/docs/auth', label: 'Configurar Auth', tone: 'secondary' },
+    ]}
+  />
+
+  <section class="border-b border-border">
+    <div class="container mx-auto px-6 py-14 grid gap-6 lg:grid-cols-2">
+      <article class="surface-card p-6">
+        <p class="type-micro text-xs uppercase text-foreground-subtle mb-2">Prerequisitos</p>
+        <ul class="space-y-3 text-foreground-muted leading-relaxed">
+          <li>WooCommerce activo en entorno de prueba o producción.</li>
+          <li>Acceso administrador a `wp-admin`.</li>
+          <li>Token de integración para cliente MCP.</li>
+          <li>Endpoint interno Bridge accesible desde tu agente.</li>
+        </ul>
+      </article>
+      <article class="surface-card p-6">
+        <p class="type-micro text-xs uppercase text-foreground-subtle mb-2">Variables mínimas</p>
+        <pre class="doc-code"><code>{`MCP_BRIDGE_BASE_URL=https://bridge.tu-dominio.com
+MCP_BRIDGE_API_KEY=mcp_live_xxxxxxxxx
+MCP_BRIDGE_STORE_UUID=store_abc123
+MCP_BRIDGE_WEBHOOK_SECRET=whsec_xxxxxxxx`}</code></pre>
+      </article>
+    </div>
+  </section>
+
+  <section class="border-b border-border">
+    <div class="container mx-auto px-6 py-14 space-y-6">
+      <article class="surface-card p-6">
+        <p class="type-micro text-xs uppercase text-foreground-subtle mb-2">Paso 1</p>
+        <h2 class="text-2xl font-semibold mb-3">Instalar plugin</h2>
+        <p class="text-foreground-muted">Sube `mcp-bridge-plugin.zip` en <span class="doc-kbd">Plugins &gt; Añadir nuevo &gt; Subir</span> y actívalo.</p>
+      </article>
+
+      <article class="surface-card p-6">
+        <p class="type-micro text-xs uppercase text-foreground-subtle mb-2">Paso 2</p>
+        <h2 class="text-2xl font-semibold mb-3">Configurar credenciales y endpoint</h2>
+        <p class="text-foreground-muted mb-4">Define API Key y webhook secret desde panel de configuración de Bridge.</p>
+        <pre class="doc-code"><code>{`curl -X POST "$MCP_BRIDGE_BASE_URL/api/health" \
+  -H "x-mcp-bridge-key: $MCP_BRIDGE_API_KEY" \
+  -H "content-type: application/json"`}</code></pre>
+      </article>
+
+      <article class="surface-card p-6">
+        <p class="type-micro text-xs uppercase text-foreground-subtle mb-2">Paso 3</p>
+        <h2 class="text-2xl font-semibold mb-3">Validar consulta de catálogo</h2>
+        <pre class="doc-code"><code>{`{
+  "tool": "get_product_data",
+  "input": { "sku": "SKU-001" }
+}`}</code></pre>
+        <p class="text-foreground-muted mt-4">Si la respuesta retorna precio, variante e inventario consistente, el flujo base ya está operativo.</p>
+      </article>
+    </div>
+  </section>
+</SitePageLayout>

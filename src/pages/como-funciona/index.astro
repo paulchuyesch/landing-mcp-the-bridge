@@ -1,0 +1,137 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+
+const steps = [
+  {
+    step: '01',
+    title: 'Instala el plugin en WooCommerce',
+    text: 'Activa THE BRIDGE desde tu panel para conectar catálogo, stock y metadatos de producto sin tocar frontend.',
+  },
+  {
+    step: '02',
+    title: 'Levanta tu Bridge local',
+    text: 'El servicio descubre estructura de tienda y sincroniza recursos al modelo AEO compatible con agentes.',
+  },
+  {
+    step: '03',
+    title: 'Conecta clientes MCP',
+    text: 'Asistentes y flujos de IA consultan precio, variantes e inventario en tiempo real de forma gobernada.',
+  },
+  {
+    step: '04',
+    title: 'Escala y observa',
+    text: 'Controla ráfagas, audita eventos y opera tráfico B2C con una capa técnica preparada para crecimiento.',
+  },
+];
+---
+
+<SitePageLayout
+  title="Cómo funciona | THE BRIDGE"
+  description="Flujo operativo de THE BRIDGE para conectar e-commerce y agentes IA con MCP en cuatro pasos."
+>
+  <PageHero
+    eyebrow="Cómo Funciona"
+    title="De instalación mínima a operación agéntica"
+    description="THE BRIDGE reduce fricción técnica: instala, sincroniza, expone herramientas MCP y escala con control operativo."
+    ctas={[
+      { href: '/docs/quickstart', label: 'Abrir quickstart', tone: 'primary' },
+      { href: '/integraciones/woocommerce', label: 'Integración WooCommerce', tone: 'secondary' },
+    ]}
+  />
+
+  <section class="border-b border-border">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 border-l border-border">
+        {steps.map((item) => (
+          <article class="border-r border-border border-t p-6 md:p-8">
+            <p class="type-micro text-xs text-foreground-subtle mb-4">({item.step})</p>
+            <h2 class="text-2xl font-semibold leading-tight mb-4">{item.title}</h2>
+            <p class="text-foreground-muted leading-relaxed">{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-border bg-background-secondary">
+    <div class="container mx-auto px-6 py-14 grid gap-8 lg:grid-cols-[1.2fr_1fr] items-start">
+      <div>
+        <p class="type-micro text-xs uppercase text-foreground-subtle mb-3">Resultado</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Menos deuda técnica. Más velocidad de respuesta.</h2>
+        <p class="text-foreground-muted max-w-2xl leading-relaxed">Deja de depender de métodos frágiles. Opera con un canal estable y verificable que mantiene tu tienda lista para el comercio asistido por IA.</p>
+      </div>
+      <div class="border border-border p-6 bg-background">
+        <p class="type-micro text-xs uppercase text-foreground-subtle mb-4">Flujo recomendado</p>
+        <p class="font-mono text-sm text-foreground-muted leading-7">
+          Plugin → Descubrimiento → Sincronización → Herramientas MCP → Agentes IA → Conversión.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-border bg-background">
+    <div class="container mx-auto px-6 py-14 lg:py-20">
+      <div class="max-w-3xl mb-12">
+        <p class="type-micro text-xs uppercase tracking-[0.18em] text-foreground-subtle mb-4">La Perspectiva del Agente</p>
+        <h2 class="text-3xl font-bold mb-4">Lo que ve la IA sobre tu tienda</h2>
+        <p class="text-foreground-muted">Compara la calidad de la información que recibe un modelo cuando navega libremente vs cuando usa THE BRIDGE.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+        <div class="border border-red-500/20 bg-red-500/5 p-6 md:p-8">
+          <div class="flex items-center justify-between mb-6 border-b border-red-500/10 pb-4">
+            <h3 class="text-lg font-semibold text-red-200">Navegación Web (HTML)</h3>
+            <span class="text-xs font-mono text-red-400 bg-red-500/10 px-2 py-1">Lento / Inestable</span>
+          </div>
+          <ul class="space-y-4">
+            <li class="flex gap-3"><span class="text-red-400 mt-0.5">✕</span><span class="text-foreground-muted text-sm">Bloqueado frecuentemente por firewalls o captchas.</span></li>
+            <li class="flex gap-3"><span class="text-red-400 mt-0.5">✕</span><span class="text-foreground-muted text-sm">Lee precios antiguos ocultos en el caché de la página.</span></li>
+            <li class="flex gap-3"><span class="text-red-400 mt-0.5">✕</span><span class="text-foreground-muted text-sm">Falla al detectar si el stock real está agotado al momento de comprar.</span></li>
+            <li class="flex gap-3"><span class="text-red-400 mt-0.5">✕</span><span class="text-foreground-muted text-sm">Consume alto procesamiento tratando de analizar el diseño y layout.</span></li>
+          </ul>
+        </div>
+
+        <div class="border border-status-stable/20 bg-status-stable/5 p-6 md:p-8">
+          <div class="flex items-center justify-between mb-6 border-b border-status-stable/10 pb-4">
+            <h3 class="text-lg font-semibold text-green-200">Protocolo MCP (THE BRIDGE)</h3>
+            <span class="text-xs font-mono text-status-stable bg-status-stable/10 px-2 py-1">Estructurado / Rápido</span>
+          </div>
+          <ul class="space-y-4">
+            <li class="flex gap-3"><span class="text-status-stable mt-0.5">✓</span><span class="text-foreground-muted text-sm">Canal dedicado con acceso autenticado. Cero bloqueos.</span></li>
+            <li class="flex gap-3"><span class="text-status-stable mt-0.5">✓</span><span class="text-foreground-muted text-sm">Recibe JSON exacto con precios, variantes y descripciones.</span></li>
+            <li class="flex gap-3"><span class="text-status-stable mt-0.5">✓</span><span class="text-foreground-muted text-sm">Inventario preciso en tiempo real para evitar recomendaciones fantasma.</span></li>
+            <li class="flex gap-3"><span class="text-status-stable mt-0.5">✓</span><span class="text-foreground-muted text-sm">Respuesta en milisegundos directamente desde la infraestructura.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-border bg-background-secondary">
+    <div class="container mx-auto px-6 py-14 lg:py-20">
+      <div class="max-w-3xl mb-12">
+        <h2 class="text-3xl font-bold mb-4">Preguntas frecuentes del flujo técnico</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <div>
+          <h3 class="text-lg font-semibold mb-2">¿Necesito saber programar para instalar el plugin?</h3>
+          <p class="text-foreground-muted text-sm leading-relaxed">No. Funciona exactamente igual que cualquier plugin de WordPress. Lo instalas, lo activas, introduces tu clave de seguridad y la sincronización comienza sola.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-2">¿Mis precios y stock se actualizan solos?</h3>
+          <p class="text-foreground-muted text-sm leading-relaxed">Sí. El plugin instala webhooks en tu tienda. Cada vez que editas un producto o se realiza una venta, el catálogo AEO se actualiza instantáneamente.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-2">¿La IA puede modificar mis productos o precios?</h3>
+          <p class="text-foreground-muted text-sm leading-relaxed">Nunca. El protocolo es estrictamente de solo lectura (`read:catalog`). Ningún agente puede ejecutar acciones de escritura, modificación ni acceso a datos de clientes.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-2">¿Funciona con mi tema visual de WordPress?</h3>
+          <p class="text-foreground-muted text-sm leading-relaxed">Sí. THE BRIDGE interactúa exclusivamente con la base de datos de WooCommerce. No toca ni depende de nada del diseño o código frontend de tu tienda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</SitePageLayout>

@@ -1,0 +1,75 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: 'Errores THE BRIDGE',
+  description: 'Catálogo de errores y troubleshooting para integraciones MCP.',
+  inLanguage: 'es',
+};
+---
+
+<SitePageLayout
+  title="Errores | Docs THE BRIDGE"
+  description="Errores frecuentes en THE BRIDGE: autenticación, validación de payload y límites de operación."
+  jsonLd={schema}
+>
+  <PageHero
+    eyebrow="Docs / Errores"
+    title="Troubleshooting para producción"
+    description="Lista de errores comunes, diagnóstico rápido y acciones de remediación para integraciones MCP y webhooks."
+    ctas={[
+      { href: '/docs/auth', label: 'Revisar Auth', tone: 'secondary' },
+      { href: '/docs/api-reference', label: 'Volver a API', tone: 'primary' },
+    ]}
+  />
+
+  <section class="border-b border-border">
+    <div class="container mx-auto px-6 py-14 overflow-x-auto">
+      <table class="w-full min-w-[760px] border border-border text-left">
+        <thead class="bg-background-secondary border-b border-border">
+          <tr>
+            <th class="p-4 text-sm font-semibold">Código</th>
+            <th class="p-4 text-sm font-semibold">Descripción</th>
+            <th class="p-4 text-sm font-semibold">Causa típica</th>
+            <th class="p-4 text-sm font-semibold">Acción recomendada</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-border">
+            <td class="p-4 font-mono text-sm">401_UNAUTHORIZED</td>
+            <td class="p-4">Credencial inválida o ausente.</td>
+            <td class="p-4 text-foreground-muted">API key incorrecta o vencida.</td>
+            <td class="p-4 text-foreground-muted">Rotar clave y verificar headers.</td>
+          </tr>
+          <tr class="border-b border-border">
+            <td class="p-4 font-mono text-sm">403_STORE_SCOPE</td>
+            <td class="p-4">Store no autorizada para la clave.</td>
+            <td class="p-4 text-foreground-muted">Desalineación entre `store_id` y key.</td>
+            <td class="p-4 text-foreground-muted">Reemitir credenciales con scope correcto.</td>
+          </tr>
+          <tr class="border-b border-border">
+            <td class="p-4 font-mono text-sm">422_INVALID_INPUT</td>
+            <td class="p-4">Payload no válido.</td>
+            <td class="p-4 text-foreground-muted">Campos faltantes o tipos incorrectos.</td>
+            <td class="p-4 text-foreground-muted">Validar contra ejemplos de API reference.</td>
+          </tr>
+          <tr class="border-b border-border">
+            <td class="p-4 font-mono text-sm">429_RATE_LIMIT</td>
+            <td class="p-4">Límite de requests alcanzado.</td>
+            <td class="p-4 text-foreground-muted">Ráfaga sin backoff.</td>
+            <td class="p-4 text-foreground-muted">Aplicar retries exponenciales con jitter.</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-mono text-sm">500_UPSTREAM_SYNC</td>
+            <td class="p-4">Error interno de sincronización.</td>
+            <td class="p-4 text-foreground-muted">Timeout/latencia de origen.</td>
+            <td class="p-4 text-foreground-muted">Reintentar, revisar estado y logs de eventos.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</SitePageLayout>

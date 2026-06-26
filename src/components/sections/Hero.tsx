@@ -1,116 +1,79 @@
 "use client";
 
-import { Mail, Check, Loader2 } from "lucide-react";
-import { useWaitlist } from "../../hooks/useWaitlist";
+import { Download } from "lucide-react";
 import { IsometricGrid } from "../svg/IsometricGrid";
 
 export function Hero() {
-  const { email, setEmail, status, message, handleSubmit } = useWaitlist();
-
   return (
     <section className="relative border-b border-border">
-      {/* Navbar space */}
-      <div className="h-14" />
+      <div className="h-16 md:h-20" />
 
-      {/* Main 2-column layout */}
-      <div className="h-[calc(100vh-3.5rem)] max-h-[800px] grid grid-cols-1 lg:grid-cols-2">
-
-        {/* Left column - Isometric visualization */}
-        <div
-          className="border-r border-border relative overflow-hidden animate-hero-fade"
-        >
+      <div className="min-h-[calc(100vh-4rem)] lg:min-h-0 lg:h-[calc(100vh-5rem)] lg:max-h-[800px] grid grid-cols-1 lg:grid-cols-2">
+        <div className="hidden lg:block border-b lg:border-b-0 lg:border-r border-border relative overflow-hidden animate-hero-fade min-h-[300px] lg:min-h-0">
           <IsometricGrid />
         </div>
 
-        {/* Right column - Content + Info */}
-        <div className="flex flex-col">
-
-          {/* Main content */}
-          <div
-            className="flex-1 flex flex-col justify-center px-8 lg:px-12 animate-hero-up"
-          >
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 border border-border px-3 py-1 text-xs text-foreground-muted mb-6 w-fit">
-              <span className="h-1.5 w-1.5 rounded-full bg-status-stable" />
-              Waitlist Access Only
+        <div className="flex flex-col h-full">
+          <div className="flex-1 flex flex-col justify-center px-8 py-12 lg:py-0 lg:px-12 animate-hero-up">
+            <div className="type-micro inline-flex items-center gap-2 border border-border px-3 py-1 text-xs text-foreground-muted mb-6 w-fit rounded-full">
+              <span className="h-2 w-2 rounded-full bg-orange-500 animate-pulse" />
+              THE BRIDGE 1.0 | Protocolo MCP
             </div>
 
-            {/* Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-              The Context Layer
+            <h1 className="text-h1 mb-6">
+              El Puente Universal
               <br />
-              <span className="text-foreground-muted">for Autonomous Engineering</span>
+              <span className="text-orange-500">IA & E-commerce</span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="text-lg text-foreground-muted mb-8 max-w-md">
-              Visual mastery for you. Structural truth for your AI. Finally, a shared reality for the entire engineering team—biological or synthetic.
+            <p className="text-body-lead text-foreground-muted mb-8 max-w-xl">
+              Conecta agentes de inteligencia artificial y LLMs directamente con tu tienda online mediante el Model Context Protocol. Seguro, rápido y escalable.
             </p>
 
-            {/* Waitlist Form */}
-            {status === "success" ? (
-              <div
-                className="flex items-center gap-3 px-4 py-3 bg-green-500/10 border border-green-500/20 rounded-lg animate-success-pop"
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/descargar"
+                className="h-12 px-8 bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-all flex items-center justify-center gap-2 btn-pulse"
               >
-                <Check className="w-5 h-5 text-green-500" />
-                <span className="text-green-500">You're on the list!</span>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 max-w-md">
-                <div className="relative flex-1">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground-subtle" />
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full h-10 pl-10 pr-4 bg-background border border-border rounded-md text-sm placeholder:text-foreground-subtle focus:outline-none focus:border-foreground/30 transition-colors"
-                    disabled={status === "loading"}
-                  />
-                </div>
-                <button
-                  type="submit"
-                  disabled={status === "loading"}
-                  className="h-10 px-5 bg-foreground text-background text-sm font-medium rounded-md hover:bg-foreground/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
-                >
-                  {status === "loading" ? (
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                  ) : (
-                    "Request Protocol Access"
-                  )}
-                </button>
-              </form>
-            )}
-            {status === "error" && (
-              <p className="text-red-400 text-sm mt-2">{message}</p>
-            )}
+                <Download className="w-4 h-4" />
+                Descargar Plugin
+              </a>
+            </div>
           </div>
 
-          {/* Bottom info - 2 columns */}
-          <div
-            className="border-t border-border grid grid-cols-2 divide-x divide-border animate-hero-up-delayed"
-          >
-            {/* Format */}
-            <div className="p-6 lg:p-8">
-              <p className="text-xs text-foreground-subtle uppercase tracking-wider mb-3">Format</p>
-              <p className="text-sm font-mono text-foreground mb-3">.context.md</p>
-              <pre className="text-xs text-foreground-subtle font-mono leading-relaxed">{`status: stable
-layers:
-  - context
-  - tests: 85%`}</pre>
+          <div className="border-t border-border grid grid-cols-2 divide-x divide-border animate-hero-up-delayed mt-8 lg:mt-0">
+            <div className="p-6 lg:p-8 flex flex-col justify-center">
+              <p className="type-micro text-xs text-foreground-subtle uppercase tracking-wider mb-3">Conexión Segura</p>
+              <div className="space-y-3 font-sans text-sm">
+                <div className="flex items-center gap-2.5">
+                  <span className="h-2 w-2 rounded-full bg-orange-500 animate-pulse" />
+                  <span className="text-foreground font-medium">Sincronización WooCommerce Activa</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <span className="h-2.5 w-2.5 flex items-center justify-center">
+                    <span className="h-2 w-2 rounded-full bg-orange-500/80" />
+                  </span>
+                  <span className="text-foreground-muted">Cifrado de Datos Seguro (HMAC)</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <span className="h-2.5 w-2.5 flex items-center justify-center">
+                    <span className="h-2 w-2 rounded-full bg-orange-500/80" />
+                  </span>
+                  <span className="text-foreground-muted">Discovery Beacon Transmitiendo</span>
+                </div>
+              </div>
             </div>
 
-            {/* Performance */}
-            <div className="p-6 lg:p-8">
-              <p className="text-xs text-foreground-subtle uppercase tracking-wider mb-3">Performance</p>
+            <div className="p-6 lg:p-8 flex flex-col justify-center">
+              <p className="type-micro text-xs text-foreground-subtle uppercase tracking-wider mb-3">Rendimiento</p>
               <div className="space-y-4">
                 <div>
-                  <p className="text-2xl font-mono">&lt;100ms</p>
-                  <p className="text-xs text-foreground-subtle">File sync</p>
+                  <p className="text-h3 text-foreground">Real-time</p>
+                  <p className="text-xs text-foreground-subtle">Sincronización</p>
                 </div>
                 <div>
-                  <p className="text-2xl font-mono">60fps</p>
-                  <p className="text-xs text-foreground-subtle">Rendering</p>
+                  <p className="text-h3 text-foreground">100%</p>
+                  <p className="text-xs text-foreground-subtle">Precisión de Catálogo</p>
                 </div>
               </div>
             </div>

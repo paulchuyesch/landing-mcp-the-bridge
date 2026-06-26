@@ -1,0 +1,43 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+---
+
+<SitePageLayout title="Privacidad | THE BRIDGE" description="Política de privacidad de THE BRIDGE.">
+  <PageHero
+    eyebrow="Legal / Privacidad"
+    title="Política de privacidad"
+    description="Recolectamos la mínima información necesaria para operar soporte, analítica básica y comunicación de producto."
+  />
+
+  <section class="border-b border-border bg-background">
+    <div class="container mx-auto px-6 py-14 max-w-4xl space-y-12">
+      <div class="prose prose-invert max-w-none text-foreground-muted">
+        <p class="text-lg leading-relaxed text-foreground">En THE BRIDGE, entendemos que los datos de tu tienda son tu activo más valioso. Por ello, diseñamos nuestra infraestructura bajo el principio de minimización de datos: solo procesamos la información estrictamente necesaria para que tus productos puedan ser descubiertos por agentes de IA.</p>
+        
+        <h2 class="text-2xl font-bold text-foreground mt-10 mb-4">1. Qué datos recolectamos</h2>
+        <p>Cuando integras nuestra solución en tu tienda, procesamos la siguiente información:</p>
+        <ul class="list-disc pl-6 space-y-2 mt-4 mb-6">
+          <li><strong>Datos públicos de tu catálogo:</strong> Nombre del producto, descripción, precio, SKU, inventario disponible y enlaces a imágenes.</li>
+          <li><strong>Datos operativos:</strong> URLs de webhooks para mantener la sincronización y métricas de latencia/errores.</li>
+          <li><strong>Datos de cuenta:</strong> Email y nombre de contacto del administrador para notificaciones críticas.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-foreground mt-10 mb-4">2. Lo que NUNCA recolectamos</h2>
+        <p>Por diseño, THE BRIDGE actúa como un canal de solo lectura para el catálogo. <strong>No tenemos acceso y nunca extraeremos:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4 mb-6">
+          <li>Datos personales de tus clientes (PII).</li>
+          <li>Historial de compras o carritos abandonados.</li>
+          <li>Información financiera o métodos de pago.</li>
+          <li>Márgenes de ganancia internos.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-foreground mt-10 mb-4">3. Uso de los datos</h2>
+        <p>Los datos de tu catálogo son almacenados temporalmente en nuestros nodos globales (Edge Caching) con el único fin de servirlos a los asistentes de IA de forma ultrarrápida. No vendemos, alquilamos ni cedemos esta información a terceros.</p>
+
+        <h2 class="text-2xl font-bold text-foreground mt-10 mb-4">4. Retención y eliminación</h2>
+        <p>Si desinstalas el plugin, purgamos todos los datos de tu catálogo en nuestros nodos de caché en máximo 72 horas. Para solicitar la eliminación anticipada, escribe a <a href="mailto:contacto@thebridge.app" class="text-orange-400 hover:underline">contacto@thebridge.app</a>.</p>
+      </div>
+    </div>
+  </section>
+</SitePageLayout>

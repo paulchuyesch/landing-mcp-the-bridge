@@ -1,74 +1,63 @@
+import { footerSections, legalLinks } from "../../lib/site-navigation";
+
 export function Footer() {
   return (
-    <footer className="border-t border-border py-8">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <a href="/" className="flex items-center">
-            <img src="/logo.svg" alt="VENORE" className="h-5" width={81} height={20} />
-          </a>
+    <footer className="border-t border-border bg-background-secondary">
+      <div className="container mx-auto px-6 py-12">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_2fr] border-b border-border pb-10">
+          <div>
+            <a href="/" className="inline-flex items-center" aria-label="THE BRIDGE inicio">
+              <img src="/logo.svg" alt="THE BRIDGE" className="h-7 w-auto" width={136} height={34} />
+            </a>
+            <p className="mt-4 max-w-sm text-sm text-foreground-muted leading-relaxed">
+              Infraestructura AEO para conectar e-commerce y agentes IA con datos confiables y operaciones seguras.
+            </p>
+            <a
+              href="/descargar"
+              className="mt-6 inline-flex h-11 px-6 items-center justify-center border border-orange-500 bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-colors"
+            >
+              Descargar plugin
+            </a>
+          </div>
 
-          <nav className="flex items-center gap-6 text-sm text-foreground-muted">
-            <a href="#features" className="hover:text-foreground transition-colors">
-              Features
-            </a>
-            <a href="#how-it-works" className="hover:text-foreground transition-colors">
-              How it works
-            </a>
-            <a href="#download" className="hover:text-foreground transition-colors">
-              Download
-            </a>
-            <a href="/blog" className="hover:text-foreground transition-colors">
-              Blog
-            </a>
-          </nav>
+          <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
+            {footerSections.map((section) => (
+              <div key={section.title}>
+                <p className="type-micro text-xs uppercase text-foreground-subtle mb-4">{section.title}</p>
+                <ul className="space-y-3 text-sm">
+                  {section.links.map((link) => (
+                    <li key={link.href}>
+                      <a href={link.href} className="text-foreground-muted hover:text-foreground transition-colors">
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-border">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-foreground-subtle">
-            <div className="text-center md:text-left">
-              <p>
-                © 2026 <span className="text-foreground">Edinson Johender</span>
-              </p>
-              <p className="mt-1">
-                Licensed under{" "}
-                <a
-                  href="https://github.com/edinsonjohender/venore-landing-astro/blob/main/LICENSE"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground hover:underline"
-                >
-                  AGPL-3.0
-                </a>
-              </p>
-            </div>
-
-            <div className="text-center">
-              <p>
-                Built with{" "}
-                <a
-                  href="https://claude.ai/claude-code"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground hover:underline"
-                >
-                  Claude Code
-                </a>
-              </p>
-              <p className="mt-1">
-                <a
-                  href="https://github.com/edinsonjohender/venore-landing-astro"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground hover:underline inline-flex items-center gap-1"
-                >
-                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                  </svg>
-                  Open Source
-                </a>
-              </p>
-            </div>
+        <div className="pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-foreground-subtle">
+            {legalLinks.map((link) => (
+              <a key={link.href} href={link.href} className="hover:text-foreground transition-colors">
+                {link.label}
+              </a>
+            ))}
           </div>
+
+          <p className="text-[10px] text-foreground-subtle opacity-35 whitespace-nowrap">
+            © 2026 Edinson Johender · Licenciado bajo {" "}
+            <a
+              href="https://github.com/edinsonjohender/venore-landing-astro/blob/main/LICENSE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              AGPL-3.0
+            </a>
+          </p>
         </div>
       </div>
     </footer>

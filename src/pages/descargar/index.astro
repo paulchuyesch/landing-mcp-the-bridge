@@ -1,0 +1,124 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'THE BRIDGE WooCommerce Plugin',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'WordPress',
+  inLanguage: 'es',
+};
+---
+
+<SitePageLayout
+  title="Descargar plugin | THE BRIDGE"
+  description="Descarga e instalación del plugin oficial de THE BRIDGE para WooCommerce."
+  jsonLd={schema}
+>
+  <PageHero
+    eyebrow="Descargar"
+    title="Instala THE BRIDGE y activa tu capa AEO"
+    description="Descarga el plugin oficial y sigue el flujo guiado para conectar tu e-commerce con agentes de IA mediante MCP."
+    ctas={[
+      { href: '/mcp-bridge-plugin.zip', label: 'Descargar .zip', tone: 'primary' },
+      { href: '/docs/quickstart', label: 'Ver guía de instalación', tone: 'secondary' },
+    ]}
+  />
+
+  <section class="border-b border-border">
+    <div class="container mx-auto px-6 py-14 grid gap-6 lg:grid-cols-3">
+      <article class="surface-card p-6"><h2 class="text-xl font-semibold mb-3">1. Descarga</h2><p class="text-foreground-muted">Obtén el paquete `.zip` del plugin para WooCommerce.</p></article>
+      <article class="surface-card p-6"><h2 class="text-xl font-semibold mb-3">2. Instala</h2><p class="text-foreground-muted">Sube el archivo desde `Plugins > Añadir nuevo > Subir plugin`.</p></article>
+      <article class="surface-card p-6"><h2 class="text-xl font-semibold mb-3">3. Activa</h2><p class="text-foreground-muted">Configura credenciales y verifica sincronización inicial.</p></article>
+    </div>
+  </section>
+
+  <section class="border-b border-border bg-background-secondary">
+    <div class="container mx-auto px-6 py-14 lg:py-20">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold mb-6">Requisitos del Sistema</h2>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <span class="text-foreground mt-0.5">✓</span>
+              <div>
+                <strong class="block text-sm">WordPress 6.0 o superior</strong>
+                <span class="text-xs text-foreground-muted">Probado y garantizado con las versiones más recientes.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-foreground mt-0.5">✓</span>
+              <div>
+                <strong class="block text-sm">WooCommerce 7.0 o superior</strong>
+                <span class="text-xs text-foreground-muted">Requerimos las APIs REST modernas de Woo para operar.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-foreground mt-0.5">✓</span>
+              <div>
+                <strong class="block text-sm">PHP 7.4 o superior</strong>
+                <span class="text-xs text-foreground-muted">Recomendamos PHP 8.1+ para máximo rendimiento en los webhooks.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-foreground mt-0.5">✓</span>
+              <div>
+                <strong class="block text-sm">Certificado SSL (HTTPS)</strong>
+                <span class="text-xs text-foreground-muted">Obligatorio. Las peticiones REST no funcionarán sin cifrado seguro.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-background border border-border p-8">
+          <h2 class="text-2xl font-bold mb-6">Soporte de instalación</h2>
+          <p class="text-sm text-foreground-muted mb-6 leading-relaxed">¿Problemas al subir el plugin o errores de permisos de escritura en tu servidor? Estamos aquí para ayudarte a conectar tu tienda a la red AEO sin dolores de cabeza.</p>
+          <a href="/contacto" class="h-12 px-6 border border-border text-foreground text-sm font-medium hover:bg-background-tertiary transition-colors inline-flex items-center justify-center w-full mb-4">Contactar a Soporte</a>
+          <p class="text-xs text-center text-foreground-subtle">Tiempo de respuesta promedio: menos de 2 horas en horario comercial.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-border bg-background">
+    <div class="container mx-auto px-6 py-14 lg:py-20">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">¿Qué pasa después de instalar?</h2>
+        <p class="text-foreground-muted">El plugin activa un flujo automático para que no tengas que preocuparte de la parte técnica.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="text-center p-6">
+          <div class="w-12 h-12 rounded-full bg-status-stable/20 text-status-stable flex items-center justify-center mx-auto mb-4 border border-status-stable/30">
+            <span class="text-lg">⚡️</span>
+          </div>
+          <h3 class="font-bold text-sm mb-2">Indexación Silenciosa</h3>
+          <p class="text-xs text-foreground-muted leading-relaxed">Tus productos se escanean en segundo plano sin afectar la velocidad o rendimiento de tu web para humanos.</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="w-12 h-12 rounded-full bg-status-stable/20 text-status-stable flex items-center justify-center mx-auto mb-4 border border-status-stable/30">
+            <span class="text-lg">📡</span>
+          </div>
+          <h3 class="font-bold text-sm mb-2">Webhooks Activos</h3>
+          <p class="text-xs text-foreground-muted leading-relaxed">Cualquier cambio de precio o disminución de stock se notificará a THE BRIDGE al instante.</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="w-12 h-12 rounded-full bg-status-stable/20 text-status-stable flex items-center justify-center mx-auto mb-4 border border-status-stable/30">
+            <span class="text-lg">🛡️</span>
+          </div>
+          <h3 class="font-bold text-sm mb-2">Seguridad Verificada</h3>
+          <p class="text-xs text-foreground-muted leading-relaxed">Se establecen firmas HMAC para garantizar que solo tu servidor puede enviar actualizaciones al puente.</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="w-12 h-12 rounded-full bg-status-stable/20 text-status-stable flex items-center justify-center mx-auto mb-4 border border-status-stable/30">
+            <span class="text-lg">📈</span>
+          </div>
+          <h3 class="font-bold text-sm mb-2">Dashboard Habilitado</h3>
+          <p class="text-xs text-foreground-muted leading-relaxed">Se activa tu panel de control para que empieces a ver el volumen de consultas de IA entrantes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</SitePageLayout>

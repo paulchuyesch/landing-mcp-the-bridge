@@ -1,0 +1,123 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+
+const systems = [
+  { name: 'Plugin WooCommerce', status: 'Operativo', detail: 'Sin incidentes críticos reportados.' },
+  { name: 'Sincronización de inventario', status: 'Operativo', detail: 'Latencia dentro de umbrales esperados.' },
+  { name: 'Eventos webhook', status: 'Operativo', detail: 'Entrega y validación de firmas estable.' },
+  { name: 'Conector Shopify', status: 'En progreso', detail: 'Fase de implementación activa.' },
+];
+---
+
+<SitePageLayout
+  title="Estado | THE BRIDGE"
+  description="Estado operativo de componentes clave de THE BRIDGE."
+>
+  <PageHero
+    eyebrow="Estado"
+    title="Monitoreo de componentes principales"
+    description="Vista de referencia para disponibilidad y evolución de servicios clave de THE BRIDGE."
+  />
+
+  <section class="border-b border-border">
+    <div class="container mx-auto px-6 py-14 overflow-x-auto">
+      <table class="w-full min-w-[720px] border border-border text-left">
+        <thead class="bg-background-secondary border-b border-border">
+          <tr>
+            <th class="p-4 text-sm font-semibold">Componente</th>
+            <th class="p-4 text-sm font-semibold">Estado</th>
+            <th class="p-4 text-sm font-semibold">Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          {systems.map((item) => (
+            <tr class="border-b border-border last:border-b-0">
+              <td class="p-4">{item.name}</td>
+              <td class="p-4">
+                <span class:list={[
+                  "inline-flex px-3 py-1 text-xs font-semibold border",
+                  item.status === 'Operativo' ? 'border-emerald-500/40 text-emerald-400' : 'border-amber-500/40 text-amber-400'
+                ]}>
+                  {item.status}
+                </span>
+              </td>
+              <td class="p-4 text-foreground-muted">{item.detail}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="border-b border-border bg-background-secondary">
+    <div class="container mx-auto px-6 py-14 lg:py-20">
+      <div class="max-w-3xl mb-12">
+        <h2 class="text-3xl font-bold mb-4">Métricas de Rendimiento</h2>
+        <p class="text-foreground-muted">Transparencia sobre la estabilidad y velocidad de nuestra infraestructura.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <div class="bg-background border border-border p-8 text-center">
+          <p class="text-sm font-semibold uppercase tracking-widest text-foreground-subtle mb-2">Uptime API MCP</p>
+          <p class="text-5xl font-light text-status-stable mb-2">99.99%</p>
+          <p class="text-xs text-foreground-muted">Últimos 30 días</p>
+        </div>
+        <div class="bg-background border border-border p-8 text-center">
+          <p class="text-sm font-semibold uppercase tracking-widest text-foreground-subtle mb-2">Latencia Promedio</p>
+          <p class="text-5xl font-light text-status-stable mb-2">45ms</p>
+          <p class="text-xs text-foreground-muted">Respuesta global (Edge cache)</p>
+        </div>
+        <div class="bg-background border border-border p-8 text-center">
+          <p class="text-sm font-semibold uppercase tracking-widest text-foreground-subtle mb-2">Eventos procesados</p>
+          <p class="text-5xl font-light text-foreground mb-2">2.4M+</p>
+          <p class="text-xs text-foreground-muted">Consultas y webhooks (Mensual)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-border bg-background">
+    <div class="container mx-auto px-6 py-14 lg:py-20">
+      <div class="max-w-3xl mb-12">
+        <h2 class="text-3xl font-bold mb-4">Arquitectura de Alta Disponibilidad</h2>
+        <p class="text-foreground-muted">Cómo garantizamos que tu tienda esté siempre disponible para las IAs, sin sobrecargar tus servidores.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h3 class="text-xl font-bold mb-3">Edge Caching Global</h3>
+          <p class="text-sm text-foreground-muted mb-6 leading-relaxed">El catálogo de tu tienda se distribuye en una red global de nodos (Edge). Cuando un agente de IA en Estados Unidos o Europa hace una consulta sobre tu producto, la respuesta se sirve desde el nodo más cercano en milisegundos, sin hacer peticiones a tu servidor WooCommerce.</p>
+          
+          <h3 class="text-xl font-bold mb-3">Protección contra picos de IA</h3>
+          <p class="text-sm text-foreground-muted leading-relaxed">Los LLMs a veces generan ráfagas de consultas (cientos de peticiones por segundo). THE BRIDGE actúa como un escudo: absorbe todo ese tráfico y responde desde su propio caché. Tu servidor de WordPress ni se entera de que ocurrió un pico de tráfico, manteniéndose rápido para tus clientes humanos.</p>
+        </div>
+        <div class="bg-background-secondary border border-border p-8">
+          <h3 class="text-lg font-bold mb-6">Flujo de resolución</h3>
+          <ul class="space-y-6">
+            <li class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded-full bg-status-stable/20 text-status-stable flex items-center justify-center shrink-0 border border-status-stable/30"><span class="text-sm font-bold">1</span></div>
+              <div>
+                <strong class="block text-sm text-foreground mb-1">Agente IA realiza consulta MCP</strong>
+                <p class="text-xs text-foreground-muted leading-relaxed">Petición recibida por la red global de THE BRIDGE.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center shrink-0 border border-orange-500/30"><span class="text-sm font-bold">2</span></div>
+              <div>
+                <strong class="block text-sm text-foreground mb-1">Caché Hit (99.8%)</strong>
+                <p class="text-xs text-foreground-muted leading-relaxed">Se devuelve el JSON del producto de inmediato. Carga en origen: 0.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4 opacity-70">
+              <div class="w-8 h-8 rounded-full bg-background-tertiary text-foreground-subtle flex items-center justify-center shrink-0 border border-border"><span class="text-sm font-bold">3</span></div>
+              <div>
+                <strong class="block text-sm text-foreground mb-1">Actualización por Webhook</strong>
+                <p class="text-xs text-foreground-muted leading-relaxed">Si cambias un precio en tu tienda, Woo notifica a THE BRIDGE, invalidando el caché del producto al instante.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</SitePageLayout>

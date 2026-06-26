@@ -1,0 +1,23 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+---
+
+<SitePageLayout
+  title="Legal | THE BRIDGE"
+  description="Centro legal de THE BRIDGE: privacidad, términos y licencia."
+>
+  <PageHero
+    eyebrow="Legal"
+    title="Políticas y términos de uso"
+    description="Consulta documentación legal de referencia para uso del sitio, plugin y servicios relacionados con THE BRIDGE."
+  />
+
+  <section class="border-b border-border">
+    <div class="container mx-auto px-6 py-14 grid gap-6 md:grid-cols-3">
+      <a href="/legal/privacidad" class="block surface-card p-6"><h2 class="text-xl font-semibold mb-2">Privacidad</h2><p class="text-foreground-muted">Uso y protección de datos.</p></a>
+      <a href="/legal/terminos" class="block surface-card p-6"><h2 class="text-xl font-semibold mb-2">Términos</h2><p class="text-foreground-muted">Condiciones de uso del servicio.</p></a>
+      <a href="/legal/licencia" class="block surface-card p-6"><h2 class="text-xl font-semibold mb-2">Licencia</h2><p class="text-foreground-muted">Marco de licencia del proyecto.</p></a>
+    </div>
+  </section>
+</SitePageLayout>

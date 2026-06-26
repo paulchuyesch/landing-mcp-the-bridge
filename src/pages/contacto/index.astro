@@ -1,0 +1,83 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contacto THE BRIDGE',
+  description: 'Canales de contacto para ventas, soporte técnico e integraciones enterprise.',
+  inLanguage: 'es',
+};
+---
+
+<SitePageLayout
+  title="Contacto | THE BRIDGE"
+  description="Canales de contacto para ventas, soporte técnico e integraciones enterprise de THE BRIDGE."
+  jsonLd={schema}
+>
+  <PageHero
+    eyebrow="Contacto"
+    title="Hablemos de tu caso técnico y comercial"
+    description="Si necesitas soporte de integración, roadmap de conectores o evaluación enterprise, te acompañamos en la implementación."
+    ctas={[
+      { href: 'mailto:contacto@thebridge.app', label: 'contacto@thebridge.app', tone: 'primary' },
+      { href: '/docs', label: 'Ir a docs', tone: 'secondary' },
+    ]}
+  />
+
+  <section class="border-b border-border bg-background">
+    <div class="container mx-auto px-6 py-14 lg:py-20">
+      <div class="max-w-3xl mb-12">
+        <h2 class="text-3xl font-bold mb-4">¿Cómo podemos ayudarte?</h2>
+        <p class="text-foreground-muted">Selecciona el área adecuada para que tu consulta llegue al equipo correcto lo antes posible.</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <article class="surface-card p-8 bg-background-secondary border-t-4 border-t-orange-500">
+          <h2 class="text-2xl font-bold mb-3">Ventas</h2>
+          <p class="text-foreground-muted text-sm leading-relaxed mb-6 h-20">Evaluación de adopción para tiendas, escalabilidad a plan Growth y acuerdos de volumen para agencias.</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2 text-xs text-foreground-muted"><span class="text-foreground">✓</span> Demo personalizada</li>
+            <li class="flex items-center gap-2 text-xs text-foreground-muted"><span class="text-foreground">✓</span> Precios por volumen</li>
+          </ul>
+          <a href="mailto:ventas@thebridge.app" class="h-12 px-6 bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-colors inline-flex items-center justify-center w-full">ventas@thebridge.app</a>
+          <p class="text-xs text-center text-foreground-subtle mt-4">Respuesta en ~24h hábiles</p>
+        </article>
+
+        <article class="surface-card p-8 bg-background-secondary border-t-4 border-t-status-stable">
+          <h2 class="text-2xl font-bold mb-3">Soporte Técnico</h2>
+          <p class="text-foreground-muted text-sm leading-relaxed mb-6 h-20">Asistencia para instalación del plugin WooCommerce, regeneración de tokens y troubleshooting.</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2 text-xs text-foreground-muted"><span class="text-foreground">✓</span> Diagnóstico de sincronización</li>
+            <li class="flex items-center gap-2 text-xs text-foreground-muted"><span class="text-foreground">✓</span> Reporte de bugs</li>
+          </ul>
+          <a href="mailto:soporte@thebridge.app" class="h-12 px-6 border border-border text-foreground text-sm font-medium hover:bg-background-tertiary transition-colors inline-flex items-center justify-center w-full">soporte@thebridge.app</a>
+          <p class="text-xs text-center text-foreground-subtle mt-4">Respuesta en &lt; 4h (Prioridad Growth)</p>
+        </article>
+
+        <article class="surface-card p-8 bg-background-secondary border-t-4 border-t-foreground-subtle md:col-span-2 xl:col-span-1">
+          <h2 class="text-2xl font-bold mb-3">Partnerships</h2>
+          <p class="text-foreground-muted text-sm leading-relaxed mb-6 h-20">Colaboraciones tecnológicas, beta de Shopify y pilotos de integración de ecosistema MCP.</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2 text-xs text-foreground-muted"><span class="text-foreground">✓</span> Desarrolladores IA</li>
+            <li class="flex items-center gap-2 text-xs text-foreground-muted"><span class="text-foreground">✓</span> Integraciones a medida</li>
+          </ul>
+          <a href="mailto:partners@thebridge.app" class="h-12 px-6 border border-border text-foreground text-sm font-medium hover:bg-background-tertiary transition-colors inline-flex items-center justify-center w-full">partners@thebridge.app</a>
+          <p class="text-xs text-center text-foreground-subtle mt-4">Respuesta en ~48h hábiles</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-border bg-background-secondary">
+    <div class="container mx-auto px-6 py-14 lg:py-20 text-center max-w-4xl">
+      <div class="inline-flex w-12 h-12 rounded-full bg-background-tertiary items-center justify-center mb-6 border border-border">
+        <span class="text-xl">💬</span>
+      </div>
+      <h2 class="text-2xl font-bold mb-4">Política de Comunicación</h2>
+      <p class="text-foreground-muted leading-relaxed text-sm mb-6">En THE BRIDGE valoramos tu tiempo. No usamos chatbots interminables ni respuestas genéricas. Nuestro equipo de soporte está compuesto por ingenieros que entienden a fondo la arquitectura de e-commerce y el protocolo MCP.</p>
+      <p class="text-foreground text-sm font-semibold">Al contactarnos, por favor incluye la URL de tu tienda y, si aplica, el log de estado del plugin de WooCommerce para agilizar el diagnóstico.</p>
+    </div>
+  </section>
+</SitePageLayout>

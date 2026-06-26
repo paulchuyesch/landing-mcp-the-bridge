@@ -1,0 +1,36 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+---
+
+<SitePageLayout title="Licencia | THE BRIDGE" description="Información de licencia del proyecto THE BRIDGE.">
+  <PageHero
+    eyebrow="Legal / Licencia"
+    title="Licenciamiento del proyecto"
+    description="THE BRIDGE se distribuye bajo licencia AGPL-3.0 para preservar apertura, auditabilidad y contribución comunitaria."
+    ctas={[
+      { href: 'https://github.com/edinsonjohender/venore-landing-astro/blob/main/LICENSE', label: 'Ver licencia AGPL-3.0', tone: 'primary' },
+    ]}
+  />
+
+  <section class="border-b border-border bg-background">
+    <div class="container mx-auto px-6 py-14 max-w-4xl space-y-12">
+      <div class="prose prose-invert max-w-none text-foreground-muted">
+        <p class="text-lg leading-relaxed text-foreground">El código base de THE BRIDGE se distribuye bajo la licencia <strong>GNU Affero General Public License v3.0 (AGPL-3.0)</strong>, con el objetivo de promover un ecosistema abierto, transparente y auditable para la integración e-commerce e IA.</p>
+        
+        <h2 class="text-2xl font-bold text-foreground mt-10 mb-4">¿Por qué AGPL-3.0?</h2>
+        <p>Al ser una infraestructura que maneja los catálogos y datos críticos de miles de tiendas, creemos que el código que opera esta transferencia debe ser público. La licencia AGPL-3.0 asegura que cualquier mejora realizada al código base y que se ofrezca como servicio a través de una red, deba ser compartida de vuelta con la comunidad.</p>
+
+        <h2 class="text-2xl font-bold text-foreground mt-10 mb-4">Permisos y Obligaciones</h2>
+        <ul class="list-disc pl-6 space-y-2 mt-4 mb-6">
+          <li><strong>Puedes:</strong> Usar comercialmente el software, modificarlo, distribuirlo y utilizarlo de forma privada.</li>
+          <li><strong>Debes:</strong> Incluir la licencia original, indicar los cambios realizados y hacer público el código fuente si ofreces el software modificado como un servicio de red (Software as a Service).</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-foreground mt-10 mb-4">Licenciamiento Comercial Alternativo</h2>
+        <p>Si eres una agencia o una plataforma que desea incrustar THE BRIDGE en su tecnología propietaria sin estar sujeto a las obligaciones de "copyleft" del AGPL-3.0, ofrecemos <strong>Licencias Comerciales Duales</strong>.</p>
+        <p>Para explorar estas opciones de licenciamiento comercial o integraciones de marca blanca, por favor ponte en contacto con nuestro equipo de Partnerships en <a href="mailto:partners@thebridge.app" class="text-orange-400 hover:underline">partners@thebridge.app</a>.</p>
+      </div>
+    </div>
+  </section>
+</SitePageLayout>

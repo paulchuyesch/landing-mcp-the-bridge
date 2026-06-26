@@ -1,0 +1,150 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'OfferCatalog',
+  name: 'Planes THE BRIDGE',
+  description: 'Planes de entrada y escalamiento para operación agéntica en e-commerce.',
+  inLanguage: 'es',
+};
+---
+
+<SitePageLayout
+  title="Precios | THE BRIDGE"
+  description="Planes de entrada y escalamiento para THE BRIDGE."
+  jsonLd={schema}
+>
+  <PageHero
+    eyebrow="Precios"
+    title="Empieza gratis. Escala cuando tengas tracción"
+    description="Modelo orientado a adopción temprana para tiendas WooCommerce. Sin fricción de entrada, con ruta clara a mayor volumen."
+    ctas={[
+      { href: '/descargar', label: 'Comenzar gratis', tone: 'primary' },
+      { href: '/contacto', label: 'Plan enterprise', tone: 'secondary' },
+    ]}
+  />
+
+  <section class="border-b border-border bg-background">
+    <div class="container mx-auto px-6 py-14">
+      <div class="grid gap-6 lg:grid-cols-3">
+        <article class="surface-card p-8 border-t-4 border-t-foreground-subtle flex flex-col">
+          <p class="type-micro text-xs uppercase tracking-wider text-foreground-subtle mb-2">Starter</p>
+          <h2 class="text-4xl font-bold mb-2">Gratis</h2>
+          <p class="text-foreground-muted mb-6 text-sm">Empieza gratis con tu primera tienda WooCommerce y valida el tráfico de agentes IA.</p>
+          <a href="/descargar" class="mt-auto h-12 px-6 border border-border text-foreground text-sm font-medium hover:bg-background-tertiary transition-colors inline-flex items-center justify-center w-full mb-8">Descargar Plugin</a>
+          
+          <p class="text-xs uppercase tracking-widest text-foreground-subtle font-semibold mb-4">Incluye:</p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-foreground-muted"><span class="text-foreground mt-0.5">✓</span> 1 Tienda WooCommerce</li>
+            <li class="flex items-start gap-3 text-sm text-foreground-muted"><span class="text-foreground mt-0.5">✓</span> Hasta 500 productos expuestos</li>
+            <li class="flex items-start gap-3 text-sm text-foreground-muted"><span class="text-foreground mt-0.5">✓</span> 10,000 consultas IA / mes</li>
+            <li class="flex items-start gap-3 text-sm text-foreground-muted"><span class="text-foreground mt-0.5">✓</span> Panel de rendimiento básico</li>
+            <li class="flex items-start gap-3 text-sm text-foreground-muted"><span class="text-foreground mt-0.5">✓</span> Sincronización diaria</li>
+          </ul>
+        </article>
+
+        <article class="surface-card-dark p-8 border-t-4 border-t-orange-500 relative transform lg:-translate-y-4 shadow-xl flex flex-col">
+          <span class="absolute top-0 right-4 transform -translate-y-1/2 bg-orange-500 text-white text-xs font-bold px-3 py-1 uppercase tracking-wider">Recomendado</span>
+          <p class="type-micro text-xs uppercase tracking-wider text-orange-400 mb-2">Growth</p>
+          <h2 class="text-4xl font-bold mb-2 text-white">Por uso</h2>
+          <p class="text-foreground-muted mb-6 text-sm">Escala a medida que crecen las consultas de agentes IA a tu catálogo.</p>
+          <a href="/contacto" class="mt-auto h-12 px-6 bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-all inline-flex items-center justify-center w-full mb-8 btn-pulse">Empezar a Escalar</a>
+          
+          <p class="text-xs uppercase tracking-widest text-foreground-subtle font-semibold mb-4">Todo en Starter, más:</p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-foreground-muted"><span class="text-orange-400 mt-0.5">✓</span> Tiendas ilimitadas</li>
+            <li class="flex items-start gap-3 text-sm text-foreground-muted"><span class="text-orange-400 mt-0.5">✓</span> Productos ilimitados</li>
+            <li class="flex items-start gap-3 text-sm text-foreground-muted"><span class="text-orange-400 mt-0.5">✓</span> Consultas IA ilimitadas</li>
+            <li class="flex items-start gap-3 text-sm text-foreground-muted"><span class="text-orange-400 mt-0.5">✓</span> Webhooks de inventario en tiempo real</li>
+            <li class="flex items-start gap-3 text-sm text-foreground-muted"><span class="text-orange-400 mt-0.5">✓</span> Soporte prioritario por email</li>
+          </ul>
+        </article>
+
+        <article class="surface-card p-8 border-t-4 border-t-foreground-subtle flex flex-col">
+          <p class="type-micro text-xs uppercase tracking-wider text-foreground-subtle mb-2">Enterprise</p>
+          <h2 class="text-4xl font-bold mb-2">Custom</h2>
+          <p class="text-foreground-muted mb-6 text-sm">Arquitectura dedicada, SLAs y soporte especializado para gran volumen.</p>
+          <a href="/contacto" class="mt-auto h-12 px-6 border border-border text-foreground text-sm font-medium hover:bg-background-tertiary transition-colors inline-flex items-center justify-center w-full mb-8">Contactar Ventas</a>
+          
+          <p class="text-xs uppercase tracking-widest text-foreground-subtle font-semibold mb-4">Todo en Growth, más:</p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-sm text-foreground-muted"><span class="text-foreground mt-0.5">✓</span> Nodos dedicados de THE BRIDGE</li>
+            <li class="flex items-start gap-3 text-sm text-foreground-muted"><span class="text-foreground mt-0.5">✓</span> SLA de disponibilidad (99.9%)</li>
+            <li class="flex items-start gap-3 text-sm text-foreground-muted"><span class="text-foreground mt-0.5">✓</span> Reglas avanzadas de rate limiting</li>
+            <li class="flex items-start gap-3 text-sm text-foreground-muted"><span class="text-foreground mt-0.5">✓</span> Soporte 24/7 y canal privado</li>
+            <li class="flex items-start gap-3 text-sm text-foreground-muted"><span class="text-foreground mt-0.5">✓</span> Gestor de cuenta dedicado</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-border bg-background-secondary">
+    <div class="container mx-auto px-6 py-14 lg:py-20">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold mb-6">¿Por qué empezar gratis?</h2>
+          <p class="text-foreground-muted mb-6 leading-relaxed">Queremos que experimentes el impacto de conectar tu tienda a la IA sin ningún riesgo. Creemos en un modelo donde THE BRIDGE solo gana dinero cuando tu infraestructura agéntica ya te está generando valor real.</p>
+          <ul class="space-y-6">
+            <li class="flex items-start gap-4">
+              <span class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 text-orange-500 flex items-center justify-center text-xs font-bold border border-orange-500/30">1</span>
+              <div>
+                <strong class="block text-foreground mb-1">Sin tarjeta de crédito</strong>
+                <span class="text-sm text-foreground-muted">Instala el plugin y crea tu cuenta sin introducir métodos de pago.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 text-orange-500 flex items-center justify-center text-xs font-bold border border-orange-500/30">2</span>
+              <div>
+                <strong class="block text-foreground mb-1">Sin compromisos</strong>
+                <span class="text-sm text-foreground-muted">Si decides que la revolución agéntica no es para ti, desinstalas el plugin y listo.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 text-orange-500 flex items-center justify-center text-xs font-bold border border-orange-500/30">3</span>
+              <div>
+                <strong class="block text-foreground mb-1">Ruta clara de escalamiento</strong>
+                <span class="text-sm text-foreground-muted">Te avisamos antes de que alcances los límites del plan Starter. Tú decides cuándo subir de nivel.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-background border border-border p-10 text-center max-w-md mx-auto w-full relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
+          <p class="text-6xl font-light mb-4">0€</p>
+          <p class="text-foreground-muted mb-8 text-sm uppercase tracking-widest">Para siempre, para tu primera tienda</p>
+          <a href="/descargar" class="h-14 px-8 bg-foreground text-background text-sm font-semibold hover:bg-foreground/90 transition-colors inline-flex items-center justify-center w-full">Descargar Plugin Gratis</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-border bg-background">
+    <div class="container mx-auto px-6 py-14 lg:py-20">
+      <div class="max-w-3xl mb-12">
+        <h2 class="text-3xl font-bold mb-4">Preguntas frecuentes sobre precios</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <div>
+          <h3 class="text-lg font-semibold mb-2">¿Cuándo empieza a cobrarme?</h3>
+          <p class="text-foreground-muted text-sm leading-relaxed">Solo cuando tú decidas escalar al plan Growth. Si estás en el plan Starter, nunca te cobraremos nada por sorpresa. Cuando alcances el límite, te notificaremos para que evalúes si deseas subir de plan.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-2">¿Puedo cambiar de plan en cualquier momento?</h3>
+          <p class="text-foreground-muted text-sm leading-relaxed">Sí. THE BRIDGE es un servicio flexible. Puedes subir a Growth cuando tus consultas de IA aumenten, y puedes volver a bajar si tu tráfico disminuye.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-2">¿Qué pasa si supero el límite del plan Starter?</h3>
+          <p class="text-foreground-muted text-sm leading-relaxed">Recibirás alertas en tu panel de WordPress y por correo electrónico cuando estés cerca del límite de consultas o productos. Si lo superas, las consultas excedentes serán denegadas de forma segura (con un código HTTP 429) hasta que empiece el siguiente mes o escales tu plan.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-2">¿Hay descuentos si gestiono múltiples tiendas?</h3>
+          <p class="text-foreground-muted text-sm leading-relaxed">Si eres una agencia que gestiona decenas de tiendas WooCommerce y quieres ofrecerles compatibilidad con IA, contacta con nosotros para evaluar el programa de partners y descuento por volumen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</SitePageLayout>

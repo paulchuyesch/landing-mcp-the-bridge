@@ -1,0 +1,396 @@
+---
+const steps = [
+  {
+    step: "01",
+    title: "El scraping convencional falla.",
+    blocks: [
+      "Los buscadores de IA no pueden rastrear catálogos dinámicos mediante scraping clásico:",
+      "• Captchas y pop-ups de stock bloquean los rastreadores de modelos como Claude o ChatGPT.",
+      "• Los datos obsoletos hacen que los asistentes recomienden productos agotados o precios incorrectos.",
+    ],
+  },
+  {
+    step: "02",
+    title: "Formato estructurado nativo.",
+    blocks: [
+      "Traducimos tu tienda de WooCommerce a un contrato de datos optimizado para IA (AEO):",
+      "• Herramientas MCP integradas: Los agentes consultan tu catálogo mediante llamadas de función JSON estructuradas.",
+      "• Cero sobrecarga visual: La IA extrae especificaciones, tallas y variantes sin procesar código HTML.",
+    ],
+  },
+  {
+    step: "03",
+    strapline: "Sincronización Inteligente",
+    title: "Catálogo y stock en tiempo real.",
+    blocks: [
+      "Tu plugin WooCommerce se conecta directamente al Bridge mediante firmas de seguridad HMAC:",
+      "• Webhooks instantáneos: Cada cambio de inventario o precio se propaga automáticamente en segundos.",
+      "• Smart Sync por volumen: El sistema balancea automáticamente qué productos exponer según la cuota de tu plan.",
+    ],
+  },
+  {
+    step: "04",
+    strapline: "Aislamiento y Control",
+    title: "Tu e-commerce 100% seguro.",
+    blocks: [
+      "Protegemos el acceso a tus sistemas críticos de venta mediante políticas de control estrictas:",
+      "• Solo lectura: Los agentes de IA solo pueden leer los campos del catálogo autorizados, nunca modificar la base de datos.",
+      "• Defensa anti-scraping: Control de paginación y rate limits distribuidos que evitan la extracción masiva de tus datos.",
+    ],
+  },
+];
+---
+
+<section id="bridge-solution" class="relative overflow-hidden border-t border-white/10 bg-zinc-950 text-zinc-100">
+  <div
+    class="pointer-events-none absolute inset-0 opacity-[0.12]"
+    style="background-image: radial-gradient(circle, rgba(255,255,255,0.35) 1px, transparent 1px); background-size: 26px 26px;"
+  ></div>
+
+  <div class="relative grid grid-cols-1 lg:grid-cols-2 border-b border-white/10">
+    <div class="border-b lg:border-b-0 lg:border-r border-white/10 px-6 py-10 lg:px-10 lg:py-12 bg-zinc-950/70">
+      <p class="text-xs uppercase tracking-[0.18em] text-zinc-500 mb-4">La Solución</p>
+      <h2 class="text-h2 max-w-2xl text-white">
+        MCP-Bridge: el enchufe universal del
+        <span class="text-zinc-400"> e-commerce agéntico.</span>
+      </h2>
+      <p class="mt-5 text-body-lead text-zinc-400 max-w-2xl">
+        No le enseñes a la IA a navegar por tu web; dale una línea directa y estructurada a tu catálogo.
+      </p>
+
+      <div class="mt-8 hidden lg:block">
+        <div class="md:h-[600px] overflow-hidden reveal-up delay-200 bg-zinc-900/40 w-full h-[500px] border border-white/10 rounded-2xl relative shadow-2xl shadow-black/40 transition-all duration-300">
+          <div class="slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100 flex flex-col items-center justify-center p-8" id="slide-1" style="opacity: 1; pointer-events: auto;">
+            <div class="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none transition-opacity" style="background-image: radial-gradient(circle, currentColor 1px, transparent 1px); background-size: 20px 20px; color: inherit;"></div>
+
+            <div class="relative z-10 w-full max-w-md h-full flex flex-col justify-between py-8">
+              <div class="flex justify-center gap-8 md:gap-12">
+                <div class="flex flex-col items-center gap-2 animate-bounce" style="animation-duration: 3s;">
+                  <div class="node-pulse-orb w-12 h-12 rounded-full bg-gradient-to-tr from-orange-500 to-orange-600 flex items-center justify-center text-white shadow-lg shadow-orange-500/25" style="--node-pulse-delay: 0s;">
+                    <span class="text-[13px] font-bold tracking-[0.08em]">IA</span>
+                  </div>
+                  <span class="type-micro text-[10px] tracking-[0.12em] text-zinc-400">IA 1</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 animate-bounce" style="animation-duration: 3.5s; animation-delay: 0.2s;">
+                  <div class="node-pulse-orb w-12 h-12 rounded-full bg-gradient-to-tr from-orange-500 to-orange-600 flex items-center justify-center text-white shadow-lg shadow-orange-500/25" style="--node-pulse-delay: 0.25s;">
+                    <span class="text-[13px] font-bold tracking-[0.08em]">IA</span>
+                  </div>
+                  <span class="type-micro text-[10px] tracking-[0.12em] text-zinc-400">IA 2</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 animate-bounce" style="animation-duration: 3.2s; animation-delay: 0.1s;">
+                  <div class="node-pulse-orb w-12 h-12 rounded-full bg-gradient-to-tr from-orange-500 to-orange-600 flex items-center justify-center text-white shadow-lg shadow-orange-500/25" style="--node-pulse-delay: 0.5s;">
+                    <span class="text-[13px] font-bold tracking-[0.08em]">IA</span>
+                  </div>
+                  <span class="type-micro text-[10px] tracking-[0.12em] text-zinc-400">IA 3</span>
+                </div>
+              </div>
+
+              <div class="flex-1 w-full relative my-4">
+                <svg class="text-zinc-700 absolute top-0 right-0 bottom-0 left-0 w-full h-full transition-colors" preserveAspectRatio="none">
+                  <path d="M140,0 C140,50 220,50 220,100" fill="none" stroke="currentColor" stroke-width="2" class="flow-line" style="animation-duration: 1.5s;"></path>
+                  <path d="M220,0 C220,50 220,50 220,100" fill="none" stroke="currentColor" stroke-width="2" class="flow-line" style="animation-duration: 1.2s;"></path>
+                  <path d="M300,0 C300,50 220,50 220,100" fill="none" stroke="currentColor" stroke-width="2" class="flow-line" style="animation-duration: 1.8s;"></path>
+                </svg>
+
+                <div class="bridge-pulse-pill absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-orange-500 text-white text-[11px] px-2.5 py-0.5 rounded-full shadow-lg shadow-orange-500/50 font-semibold tracking-[0.03em] whitespace-nowrap">
+                  The Bridge
+                </div>
+                <div class="bridge-downline absolute" aria-hidden="true"></div>
+              </div>
+
+              <div class="relative flex items-end justify-center gap-4 h-40 w-full -translate-y-10 md:-translate-y-12">
+                <div class="relative w-64 h-40 group hover:scale-105 transition-transform duration-500">
+                  <div class="absolute top-4 left-1/2 -translate-x-1/2 w-56 h-36 bg-zinc-800 rounded-t-xl border-t border-x border-zinc-700 overflow-hidden shadow-xl">
+                    <div class="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-4 bg-zinc-900 rounded-b-lg z-20"></div>
+                    <div class="w-full h-full bg-zinc-900 p-4 pt-8 flex flex-col gap-2 opacity-90">
+                      <div class="w-full h-24 bg-zinc-800 rounded flex items-center justify-center">
+                        <div class="w-8 h-8 rounded-full bg-orange-500 animate-ping opacity-20 absolute"></div>
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-white text-xs">
+                          <iconify-icon icon="solar:cart-large-linear" class="text-[14px]"></iconify-icon>
+                        </div>
+                      </div>
+                      <div class="w-full h-2 bg-zinc-800 rounded-full animate-pulse"></div>
+                      <div class="w-2/3 h-2 bg-zinc-800 rounded-full animate-pulse delay-100"></div>
+                    </div>
+                  </div>
+                  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-3 bg-zinc-700 rounded-b-lg shadow-2xl transition-colors">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-1 bg-zinc-400/50 rounded-b-sm"></div>
+                  </div>
+                </div>
+
+                <div class="absolute bottom-0 right-4 w-16 h-32 bg-zinc-900 border-[3px] border-zinc-700 rounded-2xl shadow-xl overflow-hidden hover:scale-105 transition-transform duration-500 delay-100">
+                  <div class="absolute top-2 left-1/2 -translate-x-1/2 w-5 h-1.5 bg-black rounded-full z-20"></div>
+                  <div class="w-full h-full bg-zinc-800 p-2 pt-6 flex flex-col gap-1.5">
+                    <div class="w-full aspect-square bg-zinc-700 rounded-lg"></div>
+                    <div class="w-full h-1 bg-zinc-700 rounded-full"></div>
+                    <div class="w-full h-1 bg-zinc-700 rounded-full"></div>
+                    <div class="mt-auto w-full h-6 bg-orange-600 rounded-lg flex items-center justify-center">
+                      <iconify-icon icon="solar:cart-large-linear" class="text-[10px] text-white"></iconify-icon>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="absolute bottom-6 left-6 right-6">
+              <div class="backdrop-blur-xl bg-black/55 border border-white/20 p-4 rounded-xl flex justify-between items-center shadow-lg shadow-black/35 transition-colors">
+                <div class="flex items-center gap-3">
+                  <iconify-icon icon="solar:route-linear" class="text-orange-500 text-xl"></iconify-icon>
+                  <span class="text-sm font-semibold tracking-tight text-zinc-100 transition-colors" data-i18n="card1_title">Mantén tu e-commerce siempre conectado</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  <span class="type-micro text-xs text-zinc-400 transition-colors">LIVE</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="absolute top-6 right-6 z-40 flex gap-2">
+            <button class="w-2 h-2 rounded-full bg-white scale-125" aria-label="Indicador 1"></button>
+            <button class="w-2 h-2 rounded-full bg-zinc-600" aria-label="Indicador 2"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-zinc-950/70" data-single-open-accordion>
+      {steps.map((step, index) => (
+        <details class="group border-b border-white/10 last:border-b-0 bg-transparent transition-all duration-300" open={index === 0}>
+          <summary class="list-none cursor-pointer px-6 py-8 lg:py-10 lg:px-10 flex items-start justify-between gap-4 bg-transparent hover:text-orange-400 transition-colors">
+            <div>
+              <p class="type-micro text-xs text-zinc-500 mb-3">({step.step})</p>
+              {step.strapline && (
+                <p class="text-xs uppercase tracking-[0.12em] text-zinc-500 mb-2">{step.strapline}</p>
+              )}
+              <h3 class="text-h3 text-zinc-100 transition-colors duration-300 group-hover:text-white">{step.title}</h3>
+            </div>
+            <span class="accordion-icon text-zinc-500 text-xl leading-none mt-2.5 inline-flex items-center">
+              <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+            </span>
+          </summary>
+          <div class="px-6 pb-10 lg:pb-14 lg:px-10 bg-transparent">
+            <div class="space-y-5">
+              {step.blocks.map((block) => {
+                const isBullet = block.startsWith("•");
+                const cleanBlock = isBullet ? block.substring(1).trim() : block;
+
+                const separatorIndex = cleanBlock.indexOf(":");
+                const hasLabel = separatorIndex > 0 && separatorIndex < 80;
+                const label = hasLabel ? cleanBlock.slice(0, separatorIndex + 1) : "";
+                const body = hasLabel ? cleanBlock.slice(separatorIndex + 1).trim() : cleanBlock;
+
+                if (isBullet) {
+                  return (
+                    <div class="flex items-start gap-3.5 pl-1">
+                      <span class="relative flex h-2 w-2 mt-2 flex-shrink-0">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400/60 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.5)]"></span>
+                      </span>
+                      <p class="text-body-lead text-zinc-400 max-w-2xl font-light">
+                        {hasLabel ? (
+                          <>
+                            <span class="font-medium text-zinc-200">{label}</span>{" "}{body}
+                          </>
+                        ) : (
+                          body
+                        )}
+                      </p>
+                    </div>
+                  );
+                }
+
+                return (
+                  <p class="text-body-lead text-zinc-300 max-w-2xl font-light mb-4">
+                    {hasLabel ? (
+                      <>
+                        <span class="font-medium text-zinc-100">{label}</span>{" "}{body}
+                      </>
+                    ) : (
+                      body
+                    )}
+                  </p>
+                );
+              })}
+            </div>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  const initSingleOpenAccordions = () => {
+    document.querySelectorAll("[data-single-open-accordion]").forEach((accordion) => {
+      if (accordion.dataset.singleOpenReady === "true") {
+        return;
+      }
+
+      accordion.dataset.singleOpenReady = "true";
+      const items = Array.from(accordion.querySelectorAll("details"));
+
+      items.forEach((item) => {
+        item.addEventListener("toggle", () => {
+          if (!item.open) {
+            return;
+          }
+
+          items.forEach((other) => {
+            if (other !== item && other.open) {
+              other.open = false;
+            }
+          });
+        });
+      });
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initSingleOpenAccordions, { once: true });
+  } else {
+    initSingleOpenAccordions();
+  }
+</script>
+
+<style>
+  details {
+    transition: background-color 300ms ease;
+  }
+
+  details[open] {
+    background-color: rgba(255, 255, 255, 0.015);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details .accordion-icon {
+    transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), color 250ms ease;
+  }
+
+  details[open] .accordion-icon {
+    transform: rotate(45deg) translate(1px, -1px);
+    color: #fb923c;
+  }
+
+  .flow-line {
+    stroke-dasharray: 10;
+    animation: flowDash 1s linear infinite;
+  }
+
+  .node-pulse-orb {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .node-pulse-orb::before,
+  .node-pulse-orb::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 999px;
+    border: 1px solid rgba(249, 115, 22, 0.65);
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0;
+    transform: scale(0.9);
+    animation: bridgePulseWave 2s ease-out infinite;
+    animation-delay: var(--node-pulse-delay, 0s);
+  }
+
+  .node-pulse-orb::after {
+    animation-delay: calc(var(--node-pulse-delay, 0s) + 1s);
+  }
+
+  .bridge-pulse-pill {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    max-width: max-content;
+    min-width: 0;
+    isolation: isolate;
+  }
+
+  .bridge-pulse-pill::before,
+  .bridge-pulse-pill::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 999px;
+    border: 1px solid rgba(249, 115, 22, 0.65);
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0;
+    transform: scale(0.9);
+    animation: bridgePulseWave 2s ease-out infinite;
+  }
+
+  .bridge-pulse-pill::after {
+    animation-delay: 1s;
+  }
+
+  .bridge-downline {
+    position: absolute;
+    left: 50%;
+    top: calc(50% + 18px);
+    transform: translateX(-50%);
+    width: 2px;
+    height: 92px;
+    opacity: 0.9;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(113, 113, 122, 0.9) 0 8px,
+      transparent 8px 16px
+    );
+    background-size: 2px 16px;
+    animation: bridgeDownFlow 1.05s linear infinite;
+  }
+
+  @keyframes bridgePulseWave {
+    0% {
+      opacity: 0.75;
+      transform: scale(0.92);
+      box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.45);
+    }
+    70% {
+      opacity: 0;
+      transform: scale(1.52);
+      box-shadow: 0 0 18px 8px rgba(249, 115, 22, 0);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.62);
+      box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+    }
+  }
+
+  @keyframes flowDash {
+    to {
+      stroke-dashoffset: -20;
+    }
+  }
+
+  @keyframes bridgeDownFlow {
+    to {
+      background-position-y: 16px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .flow-line,
+    .node-pulse-orb::before,
+    .node-pulse-orb::after,
+    .bridge-downline,
+    .bridge-pulse-pill::before,
+    .bridge-pulse-pill::after {
+      animation: none !important;
+    }
+  }
+</style>

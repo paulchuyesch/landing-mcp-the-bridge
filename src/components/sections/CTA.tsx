@@ -1,71 +1,92 @@
 "use client";
 
-import { Mail, Check, Loader2 } from "lucide-react";
-import { useWaitlist } from "../../hooks/useWaitlist";
+import { Download, MessageCircle } from "lucide-react";
 
 export function CTA() {
-  const { email, setEmail, status, message, handleSubmit } = useWaitlist();
-
   return (
-    <section id="download" className="py-24 border-t border-border">
+    <section id="download" className="relative z-10 overflow-hidden py-24 lg:py-32 border-t border-border">
+      {/* Decoración de Puente Abstracto (Simétrico) */}
+      <div className="absolute inset-0 pointer-events-none -z-10 opacity-30">
+        <svg className="absolute w-full h-full" viewBox="0 0 1000 300" preserveAspectRatio="none">
+          {/* Pilar izquierdo */}
+          <path d="M280 40 L320 40 L310 300 L290 300 Z" fill="currentColor" className="text-foreground-subtle/10" />
+          <rect x="290" y="20" width="20" height="20" fill="currentColor" className="text-foreground-subtle/20" />
+          
+          {/* Pilar derecho */}
+          <path d="M680 40 L720 40 L710 300 L690 300 Z" fill="currentColor" className="text-foreground-subtle/10" />
+          <rect x="690" y="20" width="20" height="20" fill="currentColor" className="text-foreground-subtle/20" />
+          
+          {/* Cables */}
+          <path d="M0 100 Q 150 250 300 40" fill="none" stroke="currentColor" strokeWidth="4" className="text-orange-500/30" />
+          <path d="M300 40 Q 500 280 700 40" fill="none" stroke="currentColor" strokeWidth="4" className="text-orange-500/30" />
+          <path d="M700 40 Q 850 250 1000 100" fill="none" stroke="currentColor" strokeWidth="4" className="text-orange-500/30" />
+          
+          {/* Tensores centrales */}
+          <line x1="350" y1="90" x2="350" y2="300" stroke="currentColor" strokeWidth="1" className="text-foreground-muted/20" />
+          <line x1="400" y1="135" x2="400" y2="300" stroke="currentColor" strokeWidth="1" className="text-foreground-muted/20" />
+          <line x1="450" y1="170" x2="450" y2="300" stroke="currentColor" strokeWidth="1" className="text-foreground-muted/20" />
+          <line x1="500" y1="190" x2="500" y2="300" stroke="currentColor" strokeWidth="1" className="text-foreground-muted/20" />
+          <line x1="550" y1="170" x2="550" y2="300" stroke="currentColor" strokeWidth="1" className="text-foreground-muted/20" />
+          <line x1="600" y1="135" x2="600" y2="300" stroke="currentColor" strokeWidth="1" className="text-foreground-muted/20" />
+          <line x1="650" y1="90" x2="650" y2="300" stroke="currentColor" strokeWidth="1" className="text-foreground-muted/20" />
+          
+          {/* Tensores laterales */}
+          <line x1="50" y1="120" x2="50" y2="300" stroke="currentColor" strokeWidth="1" className="text-foreground-muted/20" />
+          <line x1="100" y1="145" x2="100" y2="300" stroke="currentColor" strokeWidth="1" className="text-foreground-muted/20" />
+          <line x1="150" y1="165" x2="150" y2="300" stroke="currentColor" strokeWidth="1" className="text-foreground-muted/20" />
+          <line x1="200" y1="160" x2="200" y2="300" stroke="currentColor" strokeWidth="1" className="text-foreground-muted/20" />
+          <line x1="250" y1="115" x2="250" y2="300" stroke="currentColor" strokeWidth="1" className="text-foreground-muted/20" />
+
+          <line x1="750" y1="115" x2="750" y2="300" stroke="currentColor" strokeWidth="1" className="text-foreground-muted/20" />
+          <line x1="800" y1="160" x2="800" y2="300" stroke="currentColor" strokeWidth="1" className="text-foreground-muted/20" />
+          <line x1="850" y1="165" x2="850" y2="300" stroke="currentColor" strokeWidth="1" className="text-foreground-muted/20" />
+          <line x1="900" y1="145" x2="900" y2="300" stroke="currentColor" strokeWidth="1" className="text-foreground-muted/20" />
+          <line x1="950" y1="120" x2="950" y2="300" stroke="currentColor" strokeWidth="1" className="text-foreground-muted/20" />
+        </svg>
+      </div>
       <div className="container mx-auto px-6">
-        <div className="max-w-2xl">
-          <h2 className="text-3xl font-bold mb-4">
-            Ready to see the big picture?
+        <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
+          <h2 className="text-h1 mb-6">
+            Haz que tu tienda sea <span className="text-orange-500">visible</span> para la IA.
           </h2>
 
-          <p className="text-foreground-muted mb-8">
-            Transform how you understand your projects with VERONICA AI.
+          <p className="text-body-lead text-foreground-muted mb-10 max-w-2xl">
+            No pierdas ventas por tener un catálogo inaccesible. Instala THE BRIDGE en minutos y asegura que los agentes autónomos puedan recomendar tus productos.
           </p>
 
-          {/* Waitlist Form */}
-          {status === "success" ? (
-            <div className="flex items-center gap-3 px-4 py-3 bg-green-500/10 border border-green-500/20 rounded-lg animate-success-pop max-w-md">
-              <Check className="w-5 h-5 text-green-500" />
-              <span className="text-green-500">You're on the list!</span>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 max-w-md mb-8">
-              <div className="relative flex-1">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground-subtle" />
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full h-10 pl-10 pr-4 bg-background border border-border rounded-md text-sm placeholder:text-foreground-subtle focus:outline-none focus:border-foreground/30 transition-colors"
-                  disabled={status === "loading"}
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={status === "loading"}
-                className="h-10 px-5 bg-foreground text-background text-sm font-medium rounded-md hover:bg-foreground/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
-              >
-                {status === "loading" ? (
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                ) : (
-                  "Request Protocol Access"
-                )}
-              </button>
-            </form>
-          )}
-          {status === "error" && (
-            <p className="text-red-400 text-sm mt-2 mb-8">{message}</p>
-          )}
+          <div className="flex flex-col sm:flex-row gap-4 mb-10 w-full sm:w-auto">
+            <a
+              href="/descargar"
+              className="h-14 px-10 bg-orange-500 text-white text-base font-bold hover:bg-orange-600 transition-all flex items-center justify-center gap-2 w-full sm:w-auto btn-pulse"
+            >
+              <Download className="w-5 h-5" />
+              Descargar Plugin Gratis
+            </a>
+            <a
+              href="/contacto"
+              className="h-14 px-10 border border-border text-foreground text-base font-bold hover:bg-background-tertiary transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Hablar con Ventas
+            </a>
+          </div>
 
-          <div className="flex items-center gap-4 text-sm text-foreground-subtle">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm text-foreground-subtle font-medium">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-status-in-progress" />
-              <span>Windows (soon)</span>
+              <span className="w-2.5 h-2.5 bg-status-stable rounded-full" />
+              <span>WooCommerce (Estable)</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-status-in-progress" />
-              <span>macOS (soon)</span>
+              <span className="w-2.5 h-2.5 bg-status-stable rounded-full" />
+              <span>Sincronización en Tiempo Real</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-status-in-progress" />
-              <span>Linux (soon)</span>
+              <span className="w-2.5 h-2.5 bg-status-in-progress rounded-full" />
+              <span>Shopify (En Desarrollo)</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 bg-status-in-progress rounded-full" />
+              <span>Plugin ligero para WordPress (sin código)</span>
             </div>
           </div>
         </div>

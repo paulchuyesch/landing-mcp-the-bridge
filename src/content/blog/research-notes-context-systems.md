@@ -1,154 +1,154 @@
 ---
-title: "Research Notes: What I Learned Studying Context Systems for AI"
-description: "A few days into building VENORE, I researched existing approaches to code documentation and context for AI. These are my findings."
+title: "Notas de Investigación: Lo que Aprendí Estudiando Sistemas de Contexto para IA"
+description: "A pocos días de construir TU EMPRESA, investigué enfoques existentes para documentación de código y contexto para IA. Estos son mis hallazgos."
 date: 2025-12-05
-category: "Research"
+category: "Investigación"
 image: "/images/research-notes.webp"
 ---
 
-I'm only a few days into building VENORE. This is not a polished announcement. These are personal research notes — the things I've been learning while exploring how others have tried to give AI meaningful context about real codebases.
+Llevo solo unos días construyendo TU EMPRESA. Este no es un anuncio pulido. Estas son notas personales de investigación — las cosas que he estado aprendiendo mientras exploro cómo otros han intentado dar a la IA contexto significativo sobre bases de código reales.
 
-These findings are influencing the early decisions behind VENORE. They will probably change again as I learn more and get real user feedback.
+Estos hallazgos están influenciando las decisiones tempranas detrás de TU EMPRESA. Probablemente cambiarán de nuevo a medida que aprenda más y obtenga retroalimentación real de usuarios.
 
-## The Problem I'm Trying to Solve
+## El Problema que Intento Resolver
 
-Large language models can read code, but they struggle with intent. They see functions and classes, but not the reasoning behind architectural decisions. They follow imports, but miss the relationships that actually matter.
+Los grandes modelos de lenguaje pueden leer código, pero luchan con la intención. Ven funciones y clases, pero no el razonamiento detrás de las decisiones arquitectónicas. Siguen importaciones, pero pierden las relaciones que realmente importan.
 
-Documentation should solve this gap. In reality, documentation usually follows the same death cycle:
+La documentación debería resolver esta brecha. En realidad, la documentación usualmente sigue el mismo ciclo de muerte:
 
 ```
-Humans write docs.
-Code changes.
-Docs become stale.
-Trust disappears.
-No one maintains them.
-Documentation dies.
+Humanos escriben docs.
+El código cambia.
+Los docs se vuelven obsoletos.
+La confianza desaparece.
+Nadie los mantiene.
+La documentación muere.
 ```
 
-Stack Overflow's 2024 developer survey confirms it: documentation is still one of the most disliked tasks among developers. Any system that depends on constant human writing eventually collapses.
+La encuesta de desarrolladores de Stack Overflow de 2024 lo confirma: la documentación es todavía una de las tareas más odiadas entre los desarrolladores. Cualquier sistema que dependa de escritura humana constante eventualmente colapsa.
 
-So my question was simple: has anyone already solved this? What approaches exist? What worked and what clearly failed?
+Así que mi pregunta simple fue: ¿alguien ya ha resuelto esto? ¿Qué enfoques existen? ¿Qué funcionó y qué falló claramente?
 
-## What I Researched
+## Lo que Investigué
 
-Over the last few days, I explored different standards, tools, and ideas. This is a summary of what I found — informal notes, not a scientific study.
+En los últimos días, exploré diferentes estándares, herramientas e ideas. Este es un resumen de lo que encontré — notas informales, no un estudio científico.
 
-### Codebase Context Specification (CCS)
+### Especificación de Contexto de Base de Código (CCS)
 
-This is the closest idea to what I want. It proposes `.context.md` files distributed across the project. Good structure, readable markdown, and a clear intention.
+Esta es la idea más cercana a lo que quiero. Propone archivos `.context.md` distribuidos a través del proyecto. Buena estructura, markdown legible y una intención clara.
 
-But the project was archived. It had low adoption, relied too much on manual writing, and lacked tooling to provide instant value.
+Pero el proyecto fue archivado. Tuvo baja adopción, dependía demasiado de la escritura manual y carecía de herramientas para proveer valor instantáneo.
 
-The main lesson: a good format is not enough. Without automated generation, it won't survive.
+La lección principal: un buen formato no es suficiente. Sin generación automatizada, no sobrevivirá.
 
-### C4 Model
+### Modelo C4
 
-C4 is an excellent model for humans to communicate architecture. Mature, well documented, widely taught.
+C4 es un modelo excelente para que los humanos comuniquen arquitectura. Maduro, bien documentado, ampliamente enseñado.
 
-Limitation for my case: manual creation and static diagrams. Great for human-to-human communication, not for machine understanding.
+Limitación para mi caso: creación manual y diagramas estáticos. Grandioso para comunicación humano-a-humano, no para entendimiento de máquina.
 
 ### LikeC4
 
-LikeC4 extends C4 with architecture-as-code. You write a DSL, diagrams update automatically, version-controlled, CI-friendly.
+LikeC4 extiende C4 con arquitectura-como-código. Escribes un DSL, los diagramas se actualizan automáticamente, controlado por versión, amigable con CI.
 
-But it still depends on humans writing and maintaining the DSL. That reintroduces the same maintenance burden.
+Pero todavía depende de humanos escribiendo y manteniendo el DSL. Eso reintroduce la misma carga de mantenimiento.
 
 ### llms.txt
 
-A lightweight markdown spec meant to help LLMs understand a website or project. Simple, structured, easy to maintain. Adoption was small at first, but when Mintlify integrated it, many documentation sites adopted it immediately.
+Una especificación markdown ligera destinada a ayudar a los LLMs a entender un sitio web o proyecto. Simple, estructurado, fácil de mantener. La adopción fue pequeña al principio, pero cuando Mintlify la integró, muchos sitios de documentación la adoptaron inmediatamente.
 
-Key insight: small, structured context files work better than large blobs of text.
+Insight clave: pequeños archivos de contexto estructurados funcionan mejor que grandes bloques de texto.
 
 ### CLAUDE.md
 
-Claude Code uses a persistent context file to guide the model. Their guidelines are extremely practical: keep it short, reference code instead of duplicating it, use file:line pointers, and rely on deterministic tools for formatting.
+Claude Code usa un archivo de contexto persistente para guiar al modelo. Sus pautas son extremadamente prácticas: mantenlo corto, referencia código en lugar de duplicarlo, usa punteros archivo:linea, y confía en herramientas deterministas para el formato.
 
-Their `/init` command that auto-generates a CLAUDE.md is similar to what I want VENORE to do.
+Su comando `/init` que auto-genera un CLAUDE.md es similar a lo que quiero que TU EMPRESA haga.
 
-### Cursor Rules
+### Reglas de Cursor
 
-Cursor uses distributed rule files that give the editor context about the project. They recommend small files, organized by feature, not one giant rules file.
+Cursor usa archivos de reglas distribuidos que dan al editor contexto sobre el proyecto. Recomiendan archivos pequeños, organizados por funcionalidad, no un archivo de reglas gigante.
 
-Again, the same pattern appears: distributed context, short files, structured metadata.
+De nuevo, el mismo patrón aparece: contexto distribuido, archivos cortos, metadatos estructurados.
 
-### RAG Best Practices (OpenAI and Google)
+### Mejores Prácticas RAG (OpenAI y Google)
 
-Both OpenAI and Google recommend similar approaches: semantic chunking, hybrid indexing, retrieval of specific context instead of loading everything, and enforcing that the model must base its output strictly on retrieved context.
+Tanto OpenAI como Google recomiendan enfoques similares: fragmentación semántica, indexación híbrida, recuperación de contexto específico en lugar de cargar todo, y forzar que el modelo deba basar su salida estrictamente en el contexto recuperado.
 
-## Patterns That Keep Appearing
+## Patrones Que Siguen Apareciendo
 
-Across all these approaches, the same ideas show up repeatedly:
+A través de todos estos enfoques, las mismas ideas aparecen repetidamente:
 
-- Short files work better than long ones.
-- Pointing to the code is better than copying it.
-- Automatic generation beats manual writing.
-- Distributed context works better than global files.
-- Markdown with structured metadata hits the sweet spot between human and machine readability.
+- Archivos cortos funcionan mejor que los largos.
+- Apuntar al código es mejor que copiarlo.
+- Generación automática vence a la escritura manual.
+- Contexto distribuido funciona mejor que archivos globales.
+- Markdown con metadatos estructurados da en el clavo entre legibilidad humana y de máquina.
 
-The industry seems to be converging toward one idea: **small, distributed, automatically generated context files**.
+La industria parece estar convergiendo hacia una idea: **archivos de contexto pequeños, distribuidos y generados automáticamente**.
 
-## My Hypothesis for VENORE
+## Mi Hipótesis para TU EMPRESA
 
-After researching all of this, these are the core assumptions shaping VENORE:
+Después de investigar todo esto, estas son las asunciones centrales dando forma a TU EMPRESA:
 
-**Context should be distributed.** Each important folder gets its own `.context.md` placed next to the code it describes.
+**El contexto debe ser distribuido.** Cada carpeta importante obtiene su propio `.context.md` colocado junto al código que describe.
 
-**AI should generate, humans should validate.** CCS showed that relying on humans to write and maintain context is not sustainable. VENORE inverts that: AI analyzes and generates, humans refine.
+**La IA debe generar, los humanos deben validar.** CCS mostró que confiar en humanos para escribir y mantener contexto no es sostenible. TU EMPRESA invierte eso: la IA analiza y genera, los humanos refinan.
 
-**Layers should represent knowledge, not just status.** Instead of basic checkboxes, layers should contain actionable insights and metadata.
+**Las capas deben representar conocimiento, no solo estado.** En lugar de checkboxes básicos, las capas deben contener insights accionables y metadatos.
 
-**RAG should enable selective retrieval.** Chunks, embeddings, snapshots — the idea is to retrieve only what matters, not dump the entire project into the model.
+**RAG debe habilitar recuperación selectiva.** Chunks, embeddings, snapshots — la idea es recuperar solo lo que importa, no volcar el proyecto entero en el modelo.
 
-## What I'm Testing Right Now
+## Lo Que Estoy Probando Ahora Mismo
 
-These are open questions, not conclusions:
+Estas son preguntas abiertas, no conclusiones:
 
-- Is YAML frontmatter the right format for metadata?
-- What's the ideal length for a context file?
-- How much autonomy should the AI have before requiring review?
-- Which layers are essential and which should be customizable?
-- Are code-hash-based invalidations enough to detect when context becomes outdated?
+- ¿Es YAML frontmatter el formato correcto para metadatos?
+- ¿Cuál es la longitud ideal para un archivo de contexto?
+- ¿Cuánta autonomía debería tener la IA antes de requerir revisión?
+- ¿Qué capas son esenciales y cuáles deberían ser personalizables?
+- ¿Son suficientes las invalidaciones basadas en hash de código para detectar cuando el contexto se vuelve obsoleto?
 
-## Questions That Are Still Unresolved
+## Preguntas Que Aún Están Sin Resolver
 
-- How do we measure whether VENORE actually makes a project easier to understand?
-- Should VENORE export to C4 or LikeC4 formats?
-- How will this system scale to very large codebases?
-- What are the security implications of exposing architectural intent?
-- What makes a context system adoptable instead of abandoned like CCS?
+- ¿Cómo medimos si TU EMPRESA realmente hace un proyecto más fácil de entender?
+- ¿Debería TU EMPRESA exportar a formatos C4 o LikeC4?
+- ¿Cómo escalará este sistema a repositorios muy grandes?
+- ¿Cuáles son las implicaciones de seguridad de exponer la intención arquitectónica?
+- ¿Qué hace a un sistema de contexto adoptable en lugar de abandonado como CCS?
 
-## Current State
+## Estado Actual
 
-VENORE is only a few days old. It's small, experimental, and absolutely not ready to claim anything big.
+TU EMPRESA tiene solo unos pocos días de edad. Es pequeño, experimental, y absolutamente no listo para reclamar nada grande.
 
-**What exists today:**
-- Basic `.context.md` generation
-- A layer structure with metadata
-- A simple RAG system with chunks and embeddings
-- Basic dependency detection
+**Lo que existe hoy:**
+- Generación básica de `.context.md`
+- Una estructura de capas con metadatos
+- Un sistema RAG simple con chunks y embeddings
+- Detección básica de dependencias
 
-**What doesn't exist yet:**
-- Real-time updates
-- Custom layer definitions
-- Multi-project support
-- Testing on large production-scale repositories
+**Lo que no existe todavía:**
+- Actualizaciones en tiempo real
+- Definiciones de capas personalizadas
+- Soporte multi-proyecto
+- Pruebas en repositorios de escala de producción
 
-## Why I'm Sharing This So Early
+## Por Qué Estoy Compartiendo Esto Tan Temprano
 
-Because developers understand this problem better than I do.
+Porque los desarrolladores entienden este problema mejor que yo.
 
-Because I'd rather adjust early than spend months building the wrong thing.
+Porque prefiero ajustar temprano que pasar meses construyendo la cosa incorrecta.
 
-Because if the goal is to help understand code, it makes sense for my own process to be transparent.
+Porque si el objetivo es ayudar a entender código, tiene sentido que mi propio proceso sea transparente.
 
-## Closing Thoughts
+## Pensamientos de Cierre
 
-This small research sprint changed my priorities. I originally thought visualization was the core value. Now I think the foundation is simpler: reliable, distributed, auto-generated context that AI can actually use.
+Este pequeño sprint de investigación cambió mis prioridades. Originalmente pensé que la visualización era el valor central. Ahora pienso que la fundación es más simple: contexto confiable, distribuido y auto-generado que la IA realmente pueda usar.
 
-The industry is already moving in that direction. The missing piece is automated maintenance. That is where I want VENORE to focus.
+La industria ya se está moviendo en esa dirección. La pieza faltante es el mantenimiento automatizado. Ahí es donde quiero que TU EMPRESA se enfoque.
 
-If you have experience with documentation, context systems, or AI-assisted development, I'd love to hear your perspective. What did I miss? What should I rethink? What matters more than I realize?
+Si tienes experiencia con documentación, sistemas de contexto, o desarrollo asistido por IA, me encantaría escuchar tu perspectiva. ¿Qué me perdí? ¿Qué debería repensar? ¿Qué importa más de lo que me doy cuenta?
 
-These are notes from day three. Day thirty will probably look very different.
+Estas son notas del día tres. El día treinta probablemente se verá muy diferente.
 
 *Edinson*

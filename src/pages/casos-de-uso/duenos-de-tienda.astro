@@ -1,0 +1,97 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+---
+
+<SitePageLayout
+  title="Caso de uso: Dueños de tienda | THE BRIDGE"
+  description="Cómo THE BRIDGE ayuda a tiendas e-commerce a ser visibles y comprables por agentes IA."
+>
+  <PageHero
+    eyebrow="Casos de Uso / Tiendas"
+    title="Evita que tu tienda quede invisible para la IA"
+    description="Conecta inventario, precios y contexto de producto para que agentes de compra puedan operar en milisegundos."
+    ctas={[
+      { href: '/integraciones/woocommerce', label: 'Integrar mi tienda', tone: 'primary' },
+      { href: '/precios', label: 'Ver precios', tone: 'secondary' },
+    ]}
+  />
+
+  <section class="border-b border-border bg-background-secondary">
+    <div class="container mx-auto px-6 py-14 grid gap-6 md:grid-cols-3">
+      <article class="surface-card-dark p-6"><h2 class="text-xl font-semibold mb-2">Menos dependencia de frontend</h2><p class="text-foreground-muted">Los agentes consultan datos estructurados, no HTML frágil.</p></article>
+      <article class="surface-card-dark p-6"><h2 class="text-xl font-semibold mb-2">Mejor conversión asistida</h2><p class="text-foreground-muted">Disponibilidad y precio confiables en el momento de decisión.</p></article>
+      <article class="surface-card-dark p-6"><h2 class="text-xl font-semibold mb-2">Escala segura</h2><p class="text-foreground-muted">Protección operacional para soportar mayor volumen de consultas IA.</p></article>
+    </div>
+  </section>
+
+  <section class="border-b border-border bg-background">
+    <div class="container mx-auto px-6 py-14">
+      <div class="max-w-3xl mb-10">
+        <p class="type-micro text-xs uppercase tracking-[0.18em] text-foreground-subtle mb-4">Evolución</p>
+        <h2 class="text-3xl font-bold mb-4">El antes y el después</h2>
+        <p class="text-foreground-muted">Por qué la IA prefiere tiendas conectadas a THE BRIDGE.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <article class="border border-red-500/20 bg-red-500/5 p-8 relative">
+          <span class="absolute top-0 right-0 bg-red-500/20 text-red-400 text-xs px-3 py-1 font-mono border-l border-b border-red-500/20">Sin THE BRIDGE</span>
+          <h3 class="text-xl font-semibold mb-4 text-red-200">La ruta del caos</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3 text-foreground-muted"><span class="mt-2 h-px w-3 bg-red-500/50 shrink-0" /><span>La IA intenta leer tu web HTML, es bloqueada o lee datos desactualizados.</span></li>
+            <li class="flex items-start gap-3 text-foreground-muted"><span class="mt-2 h-px w-3 bg-red-500/50 shrink-0" /><span>Las recomendaciones fallan porque el stock o precio cambiaron.</span></li>
+            <li class="flex items-start gap-3 text-foreground-muted"><span class="mt-2 h-px w-3 bg-red-500/50 shrink-0" /><span>Tráfico de bots no identificados consume los recursos de tu servidor.</span></li>
+          </ul>
+        </article>
+        
+        <article class="border border-status-stable/20 bg-status-stable/5 p-8 relative">
+          <span class="absolute top-0 right-0 bg-status-stable/20 text-status-stable text-xs px-3 py-1 font-mono border-l border-b border-status-stable/20">Con THE BRIDGE</span>
+          <h3 class="text-xl font-semibold mb-4 text-green-200">La ruta agéntica</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3 text-foreground-muted"><span class="mt-2 h-px w-3 bg-status-stable/50 shrink-0" /><span>La IA consulta datos estructurados JSON en milisegundos.</span></li>
+            <li class="flex items-start gap-3 text-foreground-muted"><span class="mt-2 h-px w-3 bg-status-stable/50 shrink-0" /><span>Inventario garantizado en tiempo real. Siempre recomienda lo que puedes vender.</span></li>
+            <li class="flex items-start gap-3 text-foreground-muted"><span class="mt-2 h-px w-3 bg-status-stable/50 shrink-0" /><span>Tráfico de bots bloqueado automáticamente, consultas delegadas a THE BRIDGE.</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-border bg-background-secondary">
+    <div class="container mx-auto px-6 py-14">
+      <div class="max-w-3xl mb-10">
+        <p class="type-micro text-xs uppercase tracking-[0.18em] text-foreground-subtle mb-4">Caso Práctico</p>
+        <h2 class="text-3xl font-bold mb-4">Escenario real paso a paso</h2>
+        <p class="text-foreground-muted">Cómo funciona la experiencia para el cliente final.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 border-l border-border">
+        <div class="p-6 border-r border-border border-t md:border-t-0">
+          <div class="w-8 h-8 rounded-full bg-background-tertiary flex items-center justify-center text-sm font-mono text-foreground mb-4">1</div>
+          <p class="text-sm text-foreground-muted">Un usuario le pregunta a su asistente de IA (ej. ChatGPT) qué auriculares Bluetooth tienes disponibles.</p>
+        </div>
+        <div class="p-6 border-r border-border border-t md:border-t-0">
+          <div class="w-8 h-8 rounded-full bg-background-tertiary flex items-center justify-center text-sm font-mono text-foreground mb-4">2</div>
+          <p class="text-sm text-foreground-muted">El agente usa herramientas MCP para consultar THE BRIDGE en tiempo real.</p>
+        </div>
+        <div class="p-6 border-r border-border border-t md:border-t-0">
+          <div class="w-8 h-8 rounded-full bg-background-tertiary flex items-center justify-center text-sm font-mono text-foreground mb-4">3</div>
+          <p class="text-sm text-foreground-muted">Recibe tu catálogo actualizado con precios, stock disponible y variantes en milisegundos.</p>
+        </div>
+        <div class="p-6 border-r border-border border-t md:border-t-0">
+          <div class="w-8 h-8 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center text-sm font-mono mb-4">4</div>
+          <p class="text-sm text-foreground-muted">La IA responde con una recomendación perfecta y un link directo de compra a tu tienda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 text-center border-b border-border bg-foreground text-background">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para que tu tienda sea la primera respuesta de la IA?</h2>
+      <a href="/descargar" class="inline-flex h-14 items-center justify-center px-10 text-base font-medium bg-orange-500 text-white hover:bg-orange-600 transition-colors btn-pulse">
+        Descargar Plugin
+      </a>
+    </div>
+  </section>
+</SitePageLayout>

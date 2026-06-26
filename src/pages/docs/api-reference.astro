@@ -1,0 +1,89 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: 'API Reference THE BRIDGE',
+  description: 'Referencia de herramientas MCP para catálogo e inventario en THE BRIDGE.',
+  inLanguage: 'es',
+};
+---
+
+<SitePageLayout
+  title="API Reference | Docs THE BRIDGE"
+  description="Referencia de herramientas MCP disponibles en THE BRIDGE, incluyendo autenticación, ejemplos de payload y errores esperados."
+  jsonLd={schema}
+>
+  <PageHero
+    eyebrow="Docs / API Reference"
+    title="Contratos MCP para catálogo, inventario y contexto de tienda"
+    description="Especificación orientada a implementación: cabeceras requeridas, payloads de entrada, respuestas y códigos de error más frecuentes."
+    ctas={[
+      { href: '/docs/auth', label: 'Ver autenticación', tone: 'secondary' },
+      { href: '/docs/errors', label: 'Ver errores', tone: 'primary' },
+    ]}
+  />
+
+  <section class="border-b border-border">
+    <div class="container mx-auto px-6 py-14 grid gap-6 lg:grid-cols-2">
+      <article class="surface-card p-6">
+        <h2 class="text-xl font-semibold mb-3">Autenticación HTTP</h2>
+        <p class="text-foreground-muted mb-4">Incluye estas cabeceras en cada request al bridge.</p>
+        <pre class="doc-code"><code>{`x-mcp-bridge-key: mcp_live_xxxxx
+x-mcp-store-id: store_abc123
+content-type: application/json`}</code></pre>
+      </article>
+
+      <article class="surface-card p-6">
+        <h2 class="text-xl font-semibold mb-3">Endpoint base</h2>
+        <pre class="doc-code"><code>{`POST /api/mcp/execute
+Host: bridge.tu-dominio.com`}</code></pre>
+        <p class="text-foreground-muted mt-4">El endpoint ejecuta herramientas MCP usando payload normalizado.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="border-b border-border">
+    <div class="container mx-auto px-6 py-14 space-y-6">
+      <article class="surface-card p-6">
+        <p class="type-micro text-xs uppercase text-foreground-subtle mb-2">Tool</p>
+        <h2 class="text-2xl font-semibold mb-3">get_product_data</h2>
+        <p class="text-foreground-muted mb-4">Obtiene datos completos de un producto por SKU o ID interno.</p>
+        <pre class="doc-code"><code>{`Request
+{
+  "tool": "get_product_data",
+  "input": { "sku": "SKU-001" }
+}
+
+Response 200
+{
+  "title": "Zapatilla Trail Pro",
+  "price": 129.99,
+  "currency": "USD",
+  "variants": ["42", "43"],
+  "inventory_status": "in_stock"
+}`}</code></pre>
+      </article>
+
+      <article class="surface-card p-6">
+        <p class="type-micro text-xs uppercase text-foreground-subtle mb-2">Tool</p>
+        <h2 class="text-2xl font-semibold mb-3">list_my_store_inventory</h2>
+        <p class="text-foreground-muted mb-4">Lista inventario paginado para decisiones de disponibilidad en tiempo real.</p>
+        <pre class="doc-code"><code>{`Request
+{
+  "tool": "list_my_store_inventory",
+  "input": { "page": 1, "limit": 50, "status": "in_stock" }
+}
+
+Response 200
+{
+  "items": [{ "sku": "SKU-001", "stock": 12 }],
+  "total": 428,
+  "updated_at": "2026-02-28T20:10:00Z"
+}`}</code></pre>
+      </article>
+    </div>
+  </section>
+</SitePageLayout>

@@ -1,0 +1,132 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+---
+
+<SitePageLayout
+  title="Seguridad | THE BRIDGE"
+  description="Modelo de seguridad de THE BRIDGE para protección anti-scraping, control de acceso y auditoría."
+>
+  <PageHero
+    eyebrow="Seguridad"
+    title="Control, trazabilidad y resiliencia para operaciones IA"
+    description="THE BRIDGE protege tu infraestructura con validaciones de firma, rate limiting, observabilidad y principios de mínimo privilegio."
+    ctas={[
+      { href: '/docs/webhooks', label: 'Ver webhooks', tone: 'secondary' },
+      { href: '/contacto', label: 'Hablar con seguridad', tone: 'primary' },
+    ]}
+  />
+
+  <section class="border-b border-border">
+    <div class="container mx-auto px-6 py-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      <article class="surface-card p-6"><h2 class="text-xl font-semibold mb-2">Rate limiting</h2><p class="text-foreground-muted">Control de ráfagas para preservar disponibilidad en picos de carga.</p></article>
+      <article class="surface-card p-6"><h2 class="text-xl font-semibold mb-2">Firma de eventos</h2><p class="text-foreground-muted">Validación criptográfica para evitar inyección de payloads falsos.</p></article>
+      <article class="surface-card p-6"><h2 class="text-xl font-semibold mb-2">Auditoría</h2><p class="text-foreground-muted">Registro de consultas y eventos para trazabilidad operacional.</p></article>
+      <article class="surface-card p-6"><h2 class="text-xl font-semibold mb-2">Aislamiento</h2><p class="text-foreground-muted">Separación de capas para minimizar superficie de ataque.</p></article>
+    </div>
+  </section>
+
+  <section class="border-b border-border bg-background-secondary">
+    <div class="container mx-auto px-6 py-14 lg:py-20">
+      <div class="max-w-3xl mb-12">
+        <p class="type-micro text-xs uppercase tracking-[0.18em] text-foreground-subtle mb-4">Jerarquía de Permisos</p>
+        <h2 class="text-3xl font-bold mb-4">Modelo de acceso de THE BRIDGE</h2>
+        <p class="text-foreground-muted">Tres niveles estrictos para garantizar que tú tienes el control final.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8">
+        <div class="border border-border bg-background p-8">
+          <div class="w-10 h-10 rounded-full bg-background-tertiary flex items-center justify-center mb-6">
+            <span class="text-sm font-mono text-foreground">1</span>
+          </div>
+          <h3 class="text-lg font-semibold mb-3">Acceso Público (Discovery)</h3>
+          <p class="text-foreground-muted text-sm leading-relaxed mb-4">Solo permite a los agentes saber que tu tienda existe y qué capacidades de lectura ofrece. No expone productos ni precios.</p>
+          <span class="inline-block px-3 py-1 bg-background-tertiary text-xs font-mono text-foreground-subtle rounded-sm">Sin autenticación</span>
+        </div>
+        <div class="border border-status-stable/30 bg-status-stable/5 p-8 relative">
+          <div class="w-10 h-10 rounded-full bg-status-stable/20 text-status-stable flex items-center justify-center mb-6">
+            <span class="text-sm font-mono font-bold">2</span>
+          </div>
+          <h3 class="text-lg font-semibold mb-3 text-status-stable">Catálogo (Lectura)</h3>
+          <p class="text-foreground-muted text-sm leading-relaxed mb-4">Permite consultar el JSON de tu inventario, precios y disponibilidad en tiempo real. Es el nivel en el que operan los agentes de compra.</p>
+          <span class="inline-block px-3 py-1 bg-status-stable/20 text-xs font-mono text-status-stable rounded-sm">Requiere Guest Token</span>
+        </div>
+        <div class="border border-orange-500/30 bg-orange-500/5 p-8">
+          <div class="w-10 h-10 rounded-full bg-orange-500/20 text-orange-500 flex items-center justify-center mb-6">
+            <span class="text-sm font-mono font-bold">3</span>
+          </div>
+          <h3 class="text-lg font-semibold mb-3 text-orange-400">Integración Oficial</h3>
+          <p class="text-foreground-muted text-sm leading-relaxed mb-4">Solo para ti y tu panel de control. Permite sincronizar la tienda, configurar webhooks y administrar los planes.</p>
+          <span class="inline-block px-3 py-1 bg-orange-500/20 text-xs font-mono text-orange-400 rounded-sm">Requiere Clave Privada</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-border bg-background">
+    <div class="container mx-auto px-6 py-14 lg:py-20">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Lo que THE BRIDGE <span class="text-red-500 underline decoration-red-500/30 underline-offset-4">NUNCA</span> hace</h2>
+        <p class="text-foreground-muted">Nuestro compromiso arquitectónico con la privacidad de tu e-commerce.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+        <div class="flex items-start gap-4 p-6 border border-border bg-background-secondary">
+          <span class="text-red-500 font-bold text-xl mt-1">✕</span>
+          <div>
+            <strong class="block text-foreground mb-1">Nunca expone datos de clientes ni pedidos</strong>
+            <p class="text-sm text-foreground-muted">El alcance es estrictamente de lectura de catálogo. Los agentes no saben quién compra ni el historial de ventas.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 border border-border bg-background-secondary">
+          <span class="text-red-500 font-bold text-xl mt-1">✕</span>
+          <div>
+            <strong class="block text-foreground mb-1">Nunca modifica tu tienda</strong>
+            <p class="text-sm text-foreground-muted">Ninguna IA puede alterar un precio, cambiar un stock o borrar un producto usando nuestra API.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 border border-border bg-background-secondary">
+          <span class="text-red-500 font-bold text-xl mt-1">✕</span>
+          <div>
+            <strong class="block text-foreground mb-1">Nunca comparte tu catálogo sin permiso</strong>
+            <p class="text-sm text-foreground-muted">Si un producto está en borrador o marcado como oculto en WooCommerce, no se sincroniza con THE BRIDGE.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 border border-border bg-background-secondary">
+          <span class="text-red-500 font-bold text-xl mt-1">✕</span>
+          <div>
+            <strong class="block text-foreground mb-1">Nunca accede fuera del plugin</strong>
+            <p class="text-sm text-foreground-muted">El plugin está aislado a las funciones REST de WooCommerce. No toca otras tablas de tu WordPress.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-border bg-background-secondary">
+    <div class="container mx-auto px-6 py-14 lg:py-20">
+      <div class="max-w-3xl mb-12">
+        <h2 class="text-3xl font-bold mb-4">Preguntas frecuentes de seguridad</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <div>
+          <h3 class="text-lg font-semibold mb-2">¿Pueden los bots robar todo mi catálogo de golpe?</h3>
+          <p class="text-foreground-muted text-sm leading-relaxed">Nuestra capa heurística anti-scraping detecta y bloquea extracciones secuenciales abusivas. Si un agente intenta descargar toda la tienda en lugar de consultar un producto específico, recibe un bloqueo automático.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-2">¿Qué pasa si alguien descubre mi clave privada?</h3>
+          <p class="text-foreground-muted text-sm leading-relaxed">Puedes regenerarla inmediatamente desde el panel de WordPress. Una vez regenerada, la clave anterior queda invalidada al instante en toda la red de THE BRIDGE.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-2">¿Mis datos viajan cifrados?</h3>
+          <p class="text-foreground-muted text-sm leading-relaxed">Sí. Todas las comunicaciones entre tu tienda y THE BRIDGE están protegidas por HTTPS/TLS, y los webhooks están firmados criptográficamente (HMAC) para asegurar que provienen de tu servidor real.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-2">¿Pueden hacer un ataque DDoS a mi web a través del plugin?</h3>
+          <p class="text-foreground-muted text-sm leading-relaxed">No. Las consultas de IA impactan en la infraestructura de THE BRIDGE, no en tu WordPress. Nosotros absorbemos el pico de tráfico y servimos el catálogo cacheado, protegiendo los recursos de tu servidor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</SitePageLayout>

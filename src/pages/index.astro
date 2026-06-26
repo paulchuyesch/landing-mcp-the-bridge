@@ -4,18 +4,27 @@ import { Navbar } from '../components/sections/Navbar';
 import { Hero } from '../components/sections/Hero';
 import Features from '../components/sections/Features.astro';
 import HowItWorks from '../components/sections/HowItWorks.astro';
-import BlogPreview from '../components/sections/BlogPreview.astro';
+import MarketShift from '../components/sections/MarketShift.astro';
+import BridgeSolution from '../components/sections/BridgeSolution.astro';
+import BridgeSolutionAccordion from '../components/sections/BridgeSolutionAccordion.astro';
+import AudiencePaths from '../components/sections/AudiencePaths.astro';
+import FinalCall from '../components/sections/FinalCall.astro';
 import { CTA } from '../components/sections/CTA';
 import { Footer } from '../components/sections/Footer';
+
+const USE_ACCORDION_SOLUTION_PREVIEW = true;
 ---
 
-<Layout title="VENORE - The Context Layer for Autonomous Engineering">
+<Layout title="THE BRIDGE - Protocolo Universal para IA & E-commerce">
   <Navbar client:idle />
   <main>
     <Hero client:load />
     <Features />
     <HowItWorks />
-    <BlogPreview />
+    {USE_ACCORDION_SOLUTION_PREVIEW ? <BridgeSolutionAccordion /> : <BridgeSolution />}
+    <FinalCall />
+    <AudiencePaths />
+    <MarketShift />
     <CTA client:visible />
   </main>
   <Footer />

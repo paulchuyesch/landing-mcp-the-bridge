@@ -1,0 +1,91 @@
+---
+const ecommerceItems = [
+  "Integración pasiva con plugin en WooCommerce (y ruta Shopify en progreso).",
+  "Escudo anti-colapsos con rate limiting y control de ráfagas.",
+  "Métricas AEO para entender visibilidad ante agentes de IA.",
+  "Entrada gratuita para validar tracción antes de escalar.",
+];
+
+/* Comentado temporalmente por pivot estratégico
+const devItems = [
+  "Infra de datos limpios lista para personal shoppers agénticos.",
+  "Conectividad orientada a fiabilidad con mitigación anti-bot avanzada.",
+  "Modelo de consumo flexible para crecer según uso real.",
+  "Integración rápida con clientes MCP y flujos productivos.",
+];
+*/
+
+const securityItems = [
+  "Tú decides qué productos ven los agentes y cuáles se mantienen privados.",
+  "Escudo anti-scraping nativo que bloquea la extracción masiva de datos.",
+  "Desempeño garantizado sin caídas por tráfico abusivo de bots.",
+  "Reportes de exposición y consultas en tiempo real.",
+];
+---
+
+<section id="audience-paths" class="border-t border-border bg-background">
+  <div class="border-b border-border px-6 py-12 lg:px-12 lg:py-16">
+    <p class="type-micro text-xs uppercase tracking-[0.18em] text-foreground-subtle mb-4">La Ventaja Competitiva</p>
+    <h2 class="text-h2 max-w-5xl">
+      Todo lo que tu tienda necesita para el comercio agéntico.
+    </h2>
+  </div>
+
+  <div class="grid grid-cols-1 xl:grid-cols-2 border-b border-border">
+    <article class="bg-background-secondary px-6 py-10 lg:px-12 lg:py-12 border-b xl:border-b-0 xl:border-r border-border">
+      <p class="type-micro text-xs uppercase tracking-[0.15em] text-foreground-subtle mb-3">Dueños de e-commerce</p>
+      <h3 class="text-h3 mb-5">Evoluciona sin tocar código</h3>
+      <ul class="space-y-4">
+        {ecommerceItems.map((item) => (
+          <li class="flex items-start gap-3 text-body text-foreground-muted">
+            <span class="mt-2 h-px w-3 bg-foreground-subtle/40 shrink-0" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+      <a
+        href="/integraciones/woocommerce"
+        class="mt-7 h-12 px-7 bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-all inline-flex items-center justify-center btn-pulse"
+      >
+        Integrar mi tienda
+      </a>
+    </article>
+
+    <article class="bg-background-secondary px-6 py-10 lg:px-12 lg:py-12">
+      <p class="type-micro text-xs uppercase tracking-[0.15em] text-foreground-subtle mb-3">Control y Seguridad</p>
+      <h3 class="text-h3 mb-5">Tus datos siempre protegidos</h3>
+      <ul class="space-y-4">
+        {/*
+        Comentado temporalmente por pivot estratégico B2B
+        {devItems.map((item) => (
+          <li class="flex items-start gap-3 text-sm md:text-base text-foreground-muted leading-relaxed">
+            <span class="mt-2 h-px w-3 bg-foreground-subtle/40 shrink-0" />
+            <span>{item}</span>
+          </li>
+        ))}
+        */}
+        {securityItems.map((item) => (
+          <li class="flex items-start gap-3 text-body text-foreground-muted">
+            <span class="mt-2 h-px w-3 bg-foreground-subtle/40 shrink-0" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+      {/*
+      Comentado temporalmente por pivot estratégico B2B
+      <a
+        href="/docs/api-reference"
+        class="mt-7 h-12 px-7 border border-border text-foreground text-sm font-medium hover:bg-background-tertiary transition-colors inline-flex items-center justify-center"
+      >
+        Explorar API
+      </a>
+      */}
+      <a
+        href="/seguridad"
+        class="mt-7 h-12 px-7 bg-foreground text-background text-sm font-semibold hover:bg-foreground/90 transition-colors inline-flex items-center justify-center"
+      >
+        Ver modelo de seguridad
+      </a>
+    </article>
+  </div>
+</section>

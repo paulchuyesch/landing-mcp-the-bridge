@@ -1,0 +1,73 @@
+---
+const slides = [
+  {
+    step: "01",
+    title: "El scraping está roto",
+    description:
+      "Tu catálogo web fue diseñado para humanos. Para un agente autónomo, suele ser un laberinto lento e inestable.",
+    bullets: [
+      "Cambios de DOM rompen integraciones",
+      "Bloqueos anti-bot interrumpen consultas",
+      "Datos incompletos generan malas recomendaciones",
+    ],
+  },
+  {
+    step: "02",
+    title: "MCP-Bridge como capa AEO",
+    description:
+      "En vez de forzar navegación por HTML, expones contexto estructurado listo para agentes vía MCP.",
+    bullets: [
+      "Extracción quirúrgica con get_product_data",
+      "Inventario sincronizado con list_my_store_inventory",
+      "Integración orientada a precisión y velocidad",
+    ],
+  },
+  {
+    step: "03",
+    title: "Preparado para escala B2C",
+    description:
+      "Desde bots de WhatsApp hasta clientes MCP locales, la arquitectura sostiene picos de tráfico con seguridad.",
+    bullets: [
+      "Rate limiting y colas transaccionales",
+      "Auditoría y trazabilidad de eventos",
+      "Base lista para compras autónomas asistidas por IA",
+    ],
+  },
+];
+---
+
+<section id="bridge-solution" class="border-t border-border bg-foreground text-background">
+  <div class="border-b border-background/20 px-6 py-12 lg:px-12 lg:py-16">
+    <p class="text-xs uppercase tracking-[0.18em] text-background/60 mb-4">
+      La Solución
+    </p>
+    <h2 class="text-h2 max-w-5xl">
+      MCP-Bridge: el enchufe universal del e-commerce agéntico.
+    </h2>
+    <p class="mt-5 text-body text-background/70 max-w-4xl">
+      No le enseñes a la IA a navegar por tu web; dale una línea directa y estructurada a tu catálogo.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3">
+    {slides.map((slide, index) => (
+      <article class:list={[
+        "px-6 py-10 lg:px-10 lg:py-12 border-background/20",
+        "border-b lg:border-b-0",
+        index !== slides.length - 1 ? "lg:border-r" : ""
+      ]}>
+        <p class="type-micro text-xs text-orange-300 mb-3">Paso {slide.step}</p>
+        <h3 class="text-h4 mb-3">{slide.title}</h3>
+        <p class="text-sm leading-relaxed text-background/75 mb-4">{slide.description}</p>
+        <ul class="space-y-3">
+          {slide.bullets.map((item) => (
+            <li class="text-sm text-background/70 flex items-start gap-2">
+              <span class="mt-1.5 h-1.5 w-1.5 bg-orange-300 shrink-0" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </div>
+</section>

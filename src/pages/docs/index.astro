@@ -1,0 +1,99 @@
+---
+import SitePageLayout from '../../layouts/SitePageLayout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+
+const docsSections = [
+  {
+    title: 'Quickstart',
+    href: '/docs/quickstart',
+    description: 'Instalación y primer flujo end-to-end con WooCommerce + MCP.',
+    tag: 'Inicio',
+  },
+  {
+    title: 'Auth',
+    href: '/docs/auth',
+    description: 'Modelo de autenticación, cabeceras requeridas y rotación de claves.',
+    tag: 'Seguridad',
+  },
+  {
+    title: 'API Reference',
+    href: '/docs/api-reference',
+    description: 'Herramientas MCP, payloads, ejemplos de respuesta y validaciones.',
+    tag: 'Referencia',
+  },
+  {
+    title: 'Webhooks',
+    href: '/docs/webhooks',
+    description: 'Eventos, firma HMAC, idempotencia y estrategia de retries.',
+    tag: 'Tiempo real',
+  },
+  {
+    title: 'Errores',
+    href: '/docs/errors',
+    description: 'Catálogo de códigos, causas comunes y acciones correctivas.',
+    tag: 'Troubleshooting',
+  },
+  {
+    title: 'Arquitectura AEO',
+    href: '/docs/arquitectura-aeo',
+    description: 'Modelo semántico para exposición de catálogo ante agentes IA.',
+    tag: 'Diseño',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'THE BRIDGE Docs',
+  description: 'Documentación técnica para integrar e-commerce con agentes IA mediante MCP.',
+  inLanguage: 'es',
+};
+---
+
+<SitePageLayout
+  title="Docs | THE BRIDGE"
+  description="Documentación técnica de THE BRIDGE para integración de e-commerce con agentes IA y MCP: quickstart, auth, API, webhooks y errores."
+  jsonLd={schema}
+>
+  <PageHero
+    eyebrow="Documentación"
+    title="Referencia técnica para operar en producción"
+    description="No son textos de marketing. Aquí tienes contratos de herramientas, reglas de autenticación, ejemplos de payloads y guías de resolución de errores para entornos reales."
+    ctas={[
+      { href: '/docs/quickstart', label: 'Comenzar quickstart', tone: 'primary' },
+      { href: '/docs/api-reference', label: 'Abrir API Reference', tone: 'secondary' },
+    ]}
+  />
+
+  <section class="border-b border-border">
+    <div class="container mx-auto px-6 py-12">
+      <div class="surface-card p-6 md:p-8">
+        <p class="type-micro text-xs uppercase text-foreground-subtle mb-3">Ruta recomendada</p>
+        <p class="text-foreground-muted leading-relaxed">
+          <span class="doc-kbd">Quickstart</span>
+          <span class="mx-2">→</span>
+          <span class="doc-kbd">Auth</span>
+          <span class="mx-2">→</span>
+          <span class="doc-kbd">API Reference</span>
+          <span class="mx-2">→</span>
+          <span class="doc-kbd">Webhooks</span>
+          <span class="mx-2">→</span>
+          <span class="doc-kbd">Errores</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-border">
+    <div class="container mx-auto px-6 py-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {docsSections.map((item) => (
+        <article class="surface-card p-6">
+          <p class="type-micro text-xs uppercase text-foreground-subtle mb-3">{item.tag}</p>
+          <h2 class="text-2xl font-semibold mb-3">{item.title}</h2>
+          <p class="text-foreground-muted leading-relaxed mb-5">{item.description}</p>
+          <a href={item.href} class="btn-secondary">Abrir sección</a>
+        </article>
+      ))}
+    </div>
+  </section>
+</SitePageLayout>

@@ -9,14 +9,14 @@ interface Props {
 
 const {
   title,
-  description = "VENORE - The Context Layer for Autonomous Engineering. Powered by VERONICA AI Agent."
+  description = "THE BRIDGE - Protocolo MCP. Conecta agentes de IA y LLMs con tu tienda de e-commerce."
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://venore.app');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://thebridge.app');
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,30 +24,31 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://venore.a
     <meta name="generator" content={Astro.generator} />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
 
     <!-- Canonical -->
     <link rel="canonical" href={canonicalURL} />
 
     <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="VENORE Blog" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="THE BRIDGE Blog" href="/rss.xml" />
 
     <!-- Fonts - Optimized loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
       media="print"
       onload="this.media='all'"
     />
     <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     </noscript>
 
     <!-- Open Graph -->

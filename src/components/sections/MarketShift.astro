@@ -1,0 +1,78 @@
+---
+const painPoints = [
+  {
+    label: "El problema actual",
+    title: "Para dueños de tiendas",
+    items: [
+      "Pop-ups, captchas y tiempos de carga frenan a los agentes de compra.",
+      "Si la IA no puede leer tu stock en milisegundos, compra en otra tienda.",
+      "Tu catálogo humano no siempre es legible para asistentes autónomos.",
+    ],
+  },
+  {
+    label: "El riesgo inminente",
+    title: "El costo de la inacción",
+    items: [
+      /* Comentado temporalmente por pivot estratégico B2B
+      "Mantener scrapers frágiles consume presupuesto y tiempo de ingeniería.",
+      "Cada cambio de DOM rompe flujos críticos y empeora la UX final.",
+      "Las defensas anti-bot generan bloqueos impredecibles y deuda técnica.",
+      */
+      "Tus competidores ya están optimizando para asistentes de compra automatizados.",
+      "Perder la recomendación de un LLM significa perder ventas de alto ticket.",
+      "Sin un acceso estructurado, la IA asume que tu stock está agotado o desactualizado.",
+    ],
+  },
+];
+---
+
+<section id="aeo-shift" class="relative overflow-hidden border-t border-background/20 bg-foreground text-background">
+  <div
+    class="pointer-events-none absolute inset-0 opacity-[0.05]"
+    style="background-image: radial-gradient(circle, rgba(9,9,11,0.22) 1px, transparent 1px); background-size: 26px 26px;"
+    aria-hidden="true"
+  ></div>
+
+  <div class="border-b border-background/20 px-6 py-12 lg:px-12 lg:py-16">
+    <p class="type-micro text-xs text-background/90 uppercase tracking-wider mb-4 font-semibold">
+      El fin del SEO tradicional ha llegado
+    </p>
+
+    <h2 class="text-h2 max-w-6xl text-background">
+      Tu tienda puede volverse <span class="text-background/55">invisible</span> para los compradores del futuro.
+    </h2>
+
+    <p class="mt-6 text-body-lead text-background/60 max-w-5xl">
+      Los agentes de IA ya buscan productos por sus usuarios. Conecta tu e-commerce al ecosistema agéntico con una capa AEO lista para producción y evita perder ventas por fricción técnica.
+    </p>
+  </div>
+
+  <div class="relative grid grid-cols-1 lg:grid-cols-2 border-b border-background/20">
+    {painPoints.map((block, index) => (
+      <article class:list={[
+        "relative overflow-hidden p-6 sm:p-8 lg:p-12 bg-foreground border-background/20 transition-colors duration-300 hover:bg-background/[0.015]",
+        index === 0 ? "border-b lg:border-b-0 lg:border-r" : "border-b"
+      ]}>
+        <span class="pointer-events-none absolute -top-1 right-6 type-micro text-[72px] leading-none font-bold text-background/[0.06]">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+
+        <p class="type-micro text-[11px] uppercase tracking-[0.16em] text-background/45 mb-3">
+          {block.label}
+        </p>
+
+        <h3 class="text-h3 text-background mb-6 max-w-[20ch]">
+          {block.title}
+        </h3>
+        <ul class="space-y-4">
+          {block.items.map((item) => (
+            <li class="flex items-start gap-3 text-body text-background/65">
+              <span class="mt-3 h-px w-3 bg-background/30 shrink-0" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </div>
+</section>
