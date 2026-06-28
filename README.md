@@ -133,9 +133,11 @@ cp env.example .env
 
 Edit `.env` and add your configuration:
 ```env
-# Supabase (for waitlist)
-PUBLIC_SUPABASE_URL=your_supabase_url
-PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+# Brevo (for waitlist)
+BREVO_API_KEY=your_brevo_api_key
+BREVO_LIST_ID=2
+WAITLIST_RATE_LIMIT_MAX=3
+WAITLIST_RATE_LIMIT_WINDOW_MS=3600000
 ```
 
 4. Start development server:
