@@ -136,9 +136,15 @@ Edit `.env` and add your configuration:
 # Brevo (for waitlist)
 BREVO_API_KEY=your_brevo_api_key
 BREVO_LIST_ID=2
-WAITLIST_RATE_LIMIT_MAX=3
 WAITLIST_RATE_LIMIT_WINDOW_MS=3600000
+WAITLIST_RATE_LIMIT_EMAIL_MAX=3
+WAITLIST_RATE_LIMIT_IP_MAX=10
+WAITLIST_RATE_LIMIT_GLOBAL_MAX=100
+WAITLIST_TRUST_PROXY=false
+WAITLIST_CLIENT_IP_HEADER=cf-connecting-ip
 ```
+
+Keep `WAITLIST_TRUST_PROXY=false` unless the deployment is behind a trusted proxy/CDN that strips client-supplied forwarded headers. When enabled, `WAITLIST_CLIENT_IP_HEADER` must point to the trusted provider header.
 
 4. Start development server:
 ```bash
