@@ -1,6 +1,7 @@
 ---
 import SitePageLayout from '../../layouts/SitePageLayout.astro';
 import PageHero from '../../components/sections/PageHero.astro';
+import { WAITLIST_LABEL, WAITLIST_REL, WAITLIST_TARGET, WAITLIST_URL } from '../../lib/waitlist';
 
 const schema = {
   '@context': 'https://schema.org',
@@ -21,8 +22,8 @@ const schema = {
     title="Empieza gratis. Escala cuando tengas tracción"
     description="Modelo orientado a adopción temprana para tiendas WooCommerce. Sin fricción de entrada, con ruta clara a mayor volumen."
     ctas={[
-      { href: '/descargar', label: 'Comenzar gratis', tone: 'primary' },
-      { href: '/contacto', label: 'Plan enterprise', tone: 'secondary' },
+      { href: WAITLIST_URL, label: WAITLIST_LABEL, tone: 'primary' },
+      { href: WAITLIST_URL, label: WAITLIST_LABEL, tone: 'secondary' },
     ]}
   />
 
@@ -33,7 +34,7 @@ const schema = {
           <p class="type-micro text-xs uppercase tracking-wider text-foreground-subtle mb-2">Starter</p>
           <h2 class="text-4xl font-bold mb-2">Gratis</h2>
           <p class="text-foreground-muted mb-6 text-sm">Empieza gratis con tu primera tienda WooCommerce y valida el tráfico de agentes IA.</p>
-          <a href="/descargar" class="mt-auto h-12 px-6 border border-border text-foreground text-sm font-medium hover:bg-background-tertiary transition-colors inline-flex items-center justify-center w-full mb-8">Descargar Plugin</a>
+          <a href={WAITLIST_URL} target={WAITLIST_TARGET} rel={WAITLIST_REL} class="mt-auto h-12 px-6 border border-border text-foreground text-sm font-medium hover:bg-background-tertiary transition-colors inline-flex items-center justify-center w-full mb-8">{WAITLIST_LABEL}</a>
           
           <p class="text-xs uppercase tracking-widest text-foreground-subtle font-semibold mb-4">Incluye:</p>
           <ul class="space-y-3">
@@ -50,7 +51,7 @@ const schema = {
           <p class="type-micro text-xs uppercase tracking-wider text-orange-400 mb-2">Growth</p>
           <h2 class="text-4xl font-bold mb-2 text-white">Por uso</h2>
           <p class="text-foreground-muted mb-6 text-sm">Escala a medida que crecen las consultas de agentes IA a tu catálogo.</p>
-          <a href="/contacto" class="mt-auto h-12 px-6 bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-all inline-flex items-center justify-center w-full mb-8 btn-pulse">Empezar a Escalar</a>
+          <a href={WAITLIST_URL} target={WAITLIST_TARGET} rel={WAITLIST_REL} class="mt-auto h-12 px-6 bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-all inline-flex items-center justify-center w-full mb-8 btn-pulse">{WAITLIST_LABEL}</a>
           
           <p class="text-xs uppercase tracking-widest text-foreground-subtle font-semibold mb-4">Todo en Starter, más:</p>
           <ul class="space-y-3">
@@ -66,7 +67,7 @@ const schema = {
           <p class="type-micro text-xs uppercase tracking-wider text-foreground-subtle mb-2">Enterprise</p>
           <h2 class="text-4xl font-bold mb-2">Custom</h2>
           <p class="text-foreground-muted mb-6 text-sm">Arquitectura dedicada, SLAs y soporte especializado para gran volumen.</p>
-          <a href="/contacto" class="mt-auto h-12 px-6 border border-border text-foreground text-sm font-medium hover:bg-background-tertiary transition-colors inline-flex items-center justify-center w-full mb-8">Contactar Ventas</a>
+          <a href={WAITLIST_URL} target={WAITLIST_TARGET} rel={WAITLIST_REL} class="mt-auto h-12 px-6 border border-border text-foreground text-sm font-medium hover:bg-background-tertiary transition-colors inline-flex items-center justify-center w-full mb-8">{WAITLIST_LABEL}</a>
           
           <p class="text-xs uppercase tracking-widest text-foreground-subtle font-semibold mb-4">Todo en Growth, más:</p>
           <ul class="space-y-3">
@@ -115,7 +116,7 @@ const schema = {
           <div class="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
           <p class="text-6xl font-light mb-4">0€</p>
           <p class="text-foreground-muted mb-8 text-sm uppercase tracking-widest">Para siempre, para tu primera tienda</p>
-          <a href="/descargar" class="h-14 px-8 bg-foreground text-background text-sm font-semibold hover:bg-foreground/90 transition-colors inline-flex items-center justify-center w-full">Descargar Plugin Gratis</a>
+          <a href={WAITLIST_URL} target={WAITLIST_TARGET} rel={WAITLIST_REL} class="h-14 px-8 bg-foreground text-background text-sm font-semibold hover:bg-foreground/90 transition-colors inline-flex items-center justify-center w-full">{WAITLIST_LABEL}</a>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { primaryNavLinks } from "../../lib/site-navigation";
+import { WAITLIST_LABEL, WAITLIST_REL, WAITLIST_TARGET, WAITLIST_URL } from "../../lib/waitlist";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,10 +36,12 @@ export function Navbar() {
 
         <div className="hidden xl:flex items-center gap-3 shrink-0">
           <a
-            href="/descargar"
+            href={WAITLIST_URL}
+            target={WAITLIST_TARGET}
+            rel={WAITLIST_REL}
             className="h-9 px-4 inline-flex items-center justify-center border border-orange-500 bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 hover:border-orange-600 transition-colors"
           >
-            Descargar plugin
+            {WAITLIST_LABEL}
           </a>
         </div>
 
@@ -66,11 +69,13 @@ export function Navbar() {
               </a>
             ))}
             <a
-              href="/descargar"
+              href={WAITLIST_URL}
+              target={WAITLIST_TARGET}
+              rel={WAITLIST_REL}
               onClick={() => setIsOpen(false)}
               className="w-full mt-2 h-10 px-4 inline-flex items-center justify-center border border-orange-500 bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 hover:border-orange-600 transition-colors"
             >
-              Descargar plugin
+              {WAITLIST_LABEL}
             </a>
           </div>
         </div>

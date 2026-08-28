@@ -8,7 +8,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://venore.app',
+  site: 'https://landing-mcp-the-bridge.vercel.app',
   integrations: [react(), sitemap()],
   output: 'static',
   adapter: vercel(),

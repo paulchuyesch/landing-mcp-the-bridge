@@ -1,6 +1,7 @@
 ---
 import SitePageLayout from '../../layouts/SitePageLayout.astro';
 import PageHero from '../../components/sections/PageHero.astro';
+import { WAITLIST_LABEL, WAITLIST_URL } from '../../lib/waitlist';
 
 const schema = {
   '@context': 'https://schema.org',
@@ -22,7 +23,7 @@ const schema = {
     title="Instala THE BRIDGE y activa tu capa AEO"
     description="Descarga el plugin oficial y sigue el flujo guiado para conectar tu e-commerce con agentes de IA mediante MCP."
     ctas={[
-      { href: '/mcp-bridge-plugin.zip', label: 'Descargar .zip', tone: 'primary' },
+      { href: WAITLIST_URL, label: WAITLIST_LABEL, tone: 'primary' },
       { href: '/docs/quickstart', label: 'Ver guía de instalación', tone: 'secondary' },
     ]}
   />

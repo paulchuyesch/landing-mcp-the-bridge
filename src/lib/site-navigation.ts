@@ -1,3 +1,5 @@
+import { WAITLIST_LABEL, WAITLIST_URL } from "./waitlist";
+
 export interface NavLink {
   label: string;
   href: string;
@@ -11,6 +13,7 @@ export interface FooterSection {
 export const primaryNavLinks: NavLink[] = [
   { label: "Producto", href: "/producto" },
   { label: "Cómo funciona", href: "/como-funciona" },
+  { label: "AEO Scanner", href: "/scan" },
   { label: "Integraciones", href: "/integraciones" },
   { label: "Seguridad", href: "/seguridad" },
   { label: "Casos de uso", href: "/casos-de-uso" },
@@ -33,7 +36,7 @@ export const footerSections: FooterSection[] = [
       { label: "Visión general", href: "/integraciones" },
       { label: "WooCommerce", href: "/integraciones/woocommerce" },
       { label: "Shopify (Próx.)", href: "/integraciones/shopify" },
-      { label: "Descargar plugin", href: "/descargar" },
+      { label: WAITLIST_LABEL, href: WAITLIST_URL },
     ],
   },
   /* Comentado temporalmente por pivot estratégico B2B

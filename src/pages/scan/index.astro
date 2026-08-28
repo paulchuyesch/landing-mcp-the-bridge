@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Navbar } from '../../components/sections/Navbar';
+import { Footer } from '../../components/sections/Footer';
+import { AeoScannerWidget } from "../../components/scanner/AeoScannerWidget";
+
+export const prerender = true;
+---
+
+<Layout title="AEO Scanner - Analizador de Tiendas Woo">
+  <Navbar client:idle />
+
+  <main class="min-h-screen pt-24 pb-16 section-grid-dot">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <AeoScannerWidget client:load />
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

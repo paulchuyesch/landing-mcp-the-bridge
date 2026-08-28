@@ -1,6 +1,7 @@
 "use client";
 
-import { Download, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { WAITLIST_LABEL, WAITLIST_REL, WAITLIST_TARGET, WAITLIST_URL } from "../../lib/waitlist";
 
 export function CTA() {
   return (
@@ -56,18 +57,22 @@ export function CTA() {
 
           <div className="flex flex-col sm:flex-row gap-4 mb-10 w-full sm:w-auto">
             <a
-              href="/descargar"
+              href={WAITLIST_URL}
+              target={WAITLIST_TARGET}
+              rel={WAITLIST_REL}
               className="h-14 px-10 bg-orange-500 text-white text-base font-bold hover:bg-orange-600 transition-all flex items-center justify-center gap-2 w-full sm:w-auto btn-pulse"
             >
-              <Download className="w-5 h-5" />
-              Descargar Plugin Gratis
+              {WAITLIST_LABEL}
+              <ArrowRight className="w-5 h-5" />
             </a>
             <a
-              href="/contacto"
+              href={WAITLIST_URL}
+              target={WAITLIST_TARGET}
+              rel={WAITLIST_REL}
               className="h-14 px-10 border border-border text-foreground text-base font-bold hover:bg-background-tertiary transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
             >
-              <MessageCircle className="w-5 h-5" />
-              Hablar con Ventas
+              {WAITLIST_LABEL}
+              <ArrowRight className="w-5 h-5" />
             </a>
           </div>
 

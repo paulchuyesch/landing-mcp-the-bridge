@@ -1,6 +1,7 @@
 ---
 import SitePageLayout from '../../layouts/SitePageLayout.astro';
 import PageHero from '../../components/sections/PageHero.astro';
+import { WAITLIST_LABEL, WAITLIST_URL } from '../../lib/waitlist';
 ---
 
 <SitePageLayout
@@ -12,7 +13,7 @@ import PageHero from '../../components/sections/PageHero.astro';
     title="Conecta tu tienda Woo en minutos"
     description="Instala el plugin, activa sincronización y publica contexto estructurado para agentes IA sin exponer tu backend."
     ctas={[
-      { href: '/descargar', label: 'Descargar plugin', tone: 'primary' },
+      { href: WAITLIST_URL, label: WAITLIST_LABEL, tone: 'primary' },
       { href: '/docs/quickstart', label: 'Ver pasos técnicos', tone: 'secondary' },
     ]}
   />

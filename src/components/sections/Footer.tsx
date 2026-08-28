@@ -1,4 +1,5 @@
 import { footerSections, legalLinks } from "../../lib/site-navigation";
+import { WAITLIST_LABEL, WAITLIST_REL, WAITLIST_TARGET, WAITLIST_URL } from "../../lib/waitlist";
 
 export function Footer() {
   return (
@@ -13,10 +14,12 @@ export function Footer() {
               Infraestructura AEO para conectar e-commerce y agentes IA con datos confiables y operaciones seguras.
             </p>
             <a
-              href="/descargar"
+              href={WAITLIST_URL}
+              target={WAITLIST_TARGET}
+              rel={WAITLIST_REL}
               className="mt-6 inline-flex h-11 px-6 items-center justify-center border border-orange-500 bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-colors"
             >
-              Descargar plugin
+              {WAITLIST_LABEL}
             </a>
           </div>
 
@@ -27,7 +30,12 @@ export function Footer() {
                 <ul className="space-y-3 text-sm">
                   {section.links.map((link) => (
                     <li key={link.href}>
-                      <a href={link.href} className="text-foreground-muted hover:text-foreground transition-colors">
+                      <a
+                        href={link.href}
+                        target={link.href === WAITLIST_URL ? WAITLIST_TARGET : undefined}
+                        rel={link.href === WAITLIST_URL ? WAITLIST_REL : undefined}
+                        className="text-foreground-muted hover:text-foreground transition-colors"
+                      >
                         {link.label}
                       </a>
                     </li>

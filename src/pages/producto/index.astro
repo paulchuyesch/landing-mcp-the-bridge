@@ -1,6 +1,7 @@
 ---
 import SitePageLayout from '../../layouts/SitePageLayout.astro';
 import PageHero from '../../components/sections/PageHero.astro';
+import { WAITLIST_LABEL, WAITLIST_URL } from '../../lib/waitlist';
 
 const schema = {
   '@context': 'https://schema.org',
@@ -23,7 +24,7 @@ const schema = {
     title="El canal de datos oficial para que los asistentes de IA vendan tus productos"
     description="THE BRIDGE transforma tu tienda online en una fuente de información de alto rendimiento para la Inteligencia Artificial. Expón tu inventario, precios y detalles de productos en tiempo real, con control absoluto sobre lo que muestras y protección total ante sobrecargas."
     ctas={[
-      { href: '/descargar', label: 'Conectar WooCommerce', tone: 'primary' },
+      { href: WAITLIST_URL, label: WAITLIST_LABEL, tone: 'primary' },
       { href: '/docs/arquitectura-aeo', label: 'Ver guías de integración', tone: 'secondary' },
     ]}
   />

@@ -1,7 +1,8 @@
 "use client";
 
-import { Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { IsometricGrid } from "../svg/IsometricGrid";
+import { WAITLIST_LABEL, WAITLIST_REL, WAITLIST_TARGET, WAITLIST_URL } from "../../lib/waitlist";
 
 export function Hero() {
   return (
@@ -32,11 +33,13 @@ export function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="/descargar"
+                href={WAITLIST_URL}
+                target={WAITLIST_TARGET}
+                rel={WAITLIST_REL}
                 className="h-12 px-8 bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-all flex items-center justify-center gap-2 btn-pulse"
               >
-                <Download className="w-4 h-4" />
-                Descargar Plugin
+                {WAITLIST_LABEL}
+                <ArrowRight className="w-4 h-4" />
               </a>
             </div>
           </div>

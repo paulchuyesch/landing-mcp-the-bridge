@@ -1,6 +1,7 @@
 ---
 import SitePageLayout from '../../layouts/SitePageLayout.astro';
 import PageHero from '../../components/sections/PageHero.astro';
+import { WAITLIST_LABEL, WAITLIST_URL } from '../../lib/waitlist';
 ---
 
 <SitePageLayout
@@ -12,7 +13,7 @@ import PageHero from '../../components/sections/PageHero.astro';
     title="Conector en progreso"
     description="La integración Shopify está en roadmap activo. Mantendremos el mismo estándar: datos estructurados, operaciones seguras y herramientas MCP listas para producción."
     ctas={[
-      { href: '/contacto', label: 'Solicitar acceso temprano', tone: 'primary' },
+      { href: WAITLIST_URL, label: WAITLIST_LABEL, tone: 'primary' },
       { href: '/estado', label: 'Ver estado del producto', tone: 'secondary' },
     ]}
   />

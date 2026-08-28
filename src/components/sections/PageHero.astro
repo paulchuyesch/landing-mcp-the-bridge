@@ -1,4 +1,6 @@
 ---
+import { WAITLIST_REL, WAITLIST_TARGET, WAITLIST_URL } from '../../lib/waitlist';
+
 interface CTA {
   href: string;
   label: string;
@@ -32,6 +34,8 @@ const { eyebrow, title, description, ctas = [] } = Astro.props;
         {ctas.map((cta) => (
           <a
             href={cta.href}
+            target={cta.href === WAITLIST_URL ? WAITLIST_TARGET : undefined}
+            rel={cta.href === WAITLIST_URL ? WAITLIST_REL : undefined}
             class:list={[
               "h-12 px-7 text-sm font-semibold inline-flex items-center justify-center",
               cta.tone === 'secondary'
