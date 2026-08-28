@@ -10,7 +10,7 @@ const scanCache = new Map<string, { data: AeoPublicScanResult; timestamp: number
 const CACHE_TTL_MS = 60 * 60 * 1000;
 const MAX_CACHE_ENTRIES = 200;
 const MAX_BODY_BYTES = 2048;
-export const DEFAULT_ALLOWED_ORIGIN = "https://landing-mcp-the-bridge.vercel.app";
+export const DEFAULT_ALLOWED_ORIGIN = "https://www.mcp-bridge.com";
 
 export const prerender = false;
 

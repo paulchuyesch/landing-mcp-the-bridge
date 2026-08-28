@@ -131,7 +131,7 @@ cp env.example .env
 Edit `.env` and add your configuration:
 ```env
 # Scanner: must match the public landing origin exactly.
-SCAN_ALLOWED_ORIGIN=https://landing-mcp-the-bridge.vercel.app
+SCAN_ALLOWED_ORIGIN=https://www.mcp-bridge.com
 
 # Brevo (for waitlist)
 BREVO_API_KEY=your_brevo_api_key

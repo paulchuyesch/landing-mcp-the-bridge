@@ -43,8 +43,8 @@ void test("scanner rejects a foreign browser origin before resolving or scanning
   assert.equal(scannerCalls, 0);
 });
 
-void test("scanner defaults to the published Vercel landing origin", () => {
-  assert.equal(DEFAULT_ALLOWED_ORIGIN, "https://landing-mcp-the-bridge.vercel.app");
+void test("scanner defaults to the canonical public landing origin", () => {
+  assert.equal(DEFAULT_ALLOWED_ORIGIN, "https://www.mcp-bridge.com");
 });
 
 void test("scanner accepts Astro local development without allowing it in production", async () => {
