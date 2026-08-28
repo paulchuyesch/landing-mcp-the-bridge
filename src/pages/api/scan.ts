@@ -16,6 +16,28 @@ export const prerender = false;
 
 const BodySchema = z.object({ url: z.string().url("URL inválida") });
 
+export const resolveAllowedOrigin = (
+  configuredOrigin: string | undefined,
+  vercelEnvironment: string | undefined,
+  vercelUrl: string | undefined,
+): string => {
+  if (configuredOrigin) return configuredOrigin;
+
+  // Preview deployments receive a unique Vercel hostname. Accept only that
+  // deployment's own HTTPS hostname so the scanner remains testable in a PR
+  // without allowing arbitrary Vercel projects.
+  if (vercelEnvironment === "preview" && vercelUrl) {
+    try {
+      const previewOrigin = new URL(`https://${vercelUrl}`);
+      if (previewOrigin.hostname.endsWith(".vercel.app")) return previewOrigin.origin;
+    } catch {
+      // Fall through to the canonical production origin.
+    }
+  }
+
+  return DEFAULT_ALLOWED_ORIGIN;
+};
+
 type ScanHandlerOptions = {
   allowedOrigin?: string;
   allowLocalDevelopmentOrigins?: boolean;
@@ -98,7 +120,11 @@ const pruneCache = (cache: Map<string, { data: AeoPublicScanResult; timestamp: n
 };
 
 export const createScanPostHandler = (options: ScanHandlerOptions = {}): APIRoute => {
-  const allowedOrigin = options.allowedOrigin ?? import.meta.env?.SCAN_ALLOWED_ORIGIN ?? DEFAULT_ALLOWED_ORIGIN;
+  const allowedOrigin = options.allowedOrigin ?? resolveAllowedOrigin(
+    import.meta.env?.SCAN_ALLOWED_ORIGIN,
+    import.meta.env?.VERCEL_ENV,
+    import.meta.env?.VERCEL_URL,
+  );
   const allowLocalDevelopmentOrigins = options.allowLocalDevelopmentOrigins ?? import.meta.env?.DEV ?? false;
   const limiter = options.limiter ?? rateLimiter;
   const cache = options.cache ?? scanCache;
@@ -157,7 +183,11 @@ export const createScanPostHandler = (options: ScanHandlerOptions = {}): APIRout
 export const POST = createScanPostHandler();
 
 export const OPTIONS: APIRoute = async ({ request }) => {
-  const allowedOrigin = import.meta.env?.SCAN_ALLOWED_ORIGIN ?? DEFAULT_ALLOWED_ORIGIN;
+  const allowedOrigin = resolveAllowedOrigin(
+    import.meta.env?.SCAN_ALLOWED_ORIGIN,
+    import.meta.env?.VERCEL_ENV,
+    import.meta.env?.VERCEL_URL,
+  );
   const responseOrigin = allowedRequestOrigin(request.headers.get("origin"), allowedOrigin, import.meta.env?.DEV ?? false);
   if (!responseOrigin) {
     return new Response(null, { status: 403, headers: { Vary: "Origin" } });
