@@ -9,9 +9,6 @@ A high-performance, modern landing page built with Astro, React, and TypeScript.
 [![Astro](https://img.shields.io/badge/Astro-5.x-FF5D01?style=flat-square&logo=astro)](https://astro.build)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 
-## Demo
-
-**Live Site:** [www.venore.app](https://www.venore.app)
 
 ## Features
 
