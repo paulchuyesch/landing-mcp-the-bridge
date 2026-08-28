@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { Readable } from "node:stream";
 import test from "node:test";
-import { createScanPostHandler, DEFAULT_ALLOWED_ORIGIN } from "../src/pages/api/scan.js";
+import { createScanPostHandler, DEFAULT_ALLOWED_ORIGIN, resolveAllowedOrigin } from "../src/pages/api/scan.js";
 import { MemoryRateLimiter } from "../src/lib/scanner/core/rateLimiter.js";
 import { calculateScores } from "../src/lib/scanner/core/scoringEngine.js";
 import { isExplicitAccessBlock } from "../src/lib/scanner/core/orchestrator.js";
@@ -43,8 +43,16 @@ void test("scanner rejects a foreign browser origin before resolving or scanning
   assert.equal(scannerCalls, 0);
 });
 
-void test("scanner defaults to the published Vercel landing origin", () => {
-  assert.equal(DEFAULT_ALLOWED_ORIGIN, "https://landing-mcp-the-bridge.vercel.app");
+void test("scanner defaults to the canonical public landing origin", () => {
+  assert.equal(DEFAULT_ALLOWED_ORIGIN, "https://www.mcp-bridge.com");
+});
+
+void test("scanner preview accepts only its own Vercel deployment origin", () => {
+  assert.equal(
+    resolveAllowedOrigin(undefined, "preview", "landing-mcp-the-bridge-abc123-the-bridge3.vercel.app"),
+    "https://landing-mcp-the-bridge-abc123-the-bridge3.vercel.app",
+  );
+  assert.equal(resolveAllowedOrigin(undefined, "preview", "attacker.example"), DEFAULT_ALLOWED_ORIGIN);
 });
 
 void test("scanner accepts Astro local development without allowing it in production", async () => {

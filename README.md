@@ -131,7 +131,7 @@ cp env.example .env
 Edit `.env` and add your configuration:
 ```env
 # Scanner: must match the public landing origin exactly.
-SCAN_ALLOWED_ORIGIN=https://landing-mcp-the-bridge.vercel.app
+SCAN_ALLOWED_ORIGIN=https://www.mcp-bridge.com
 
 # Brevo (for waitlist)
 BREVO_API_KEY=your_brevo_api_key
@@ -145,6 +145,8 @@ WAITLIST_CLIENT_IP_HEADER=cf-connecting-ip
 ```
 
 When moving the landing to a custom domain, update `SCAN_ALLOWED_ORIGIN` in Vercel to that exact `https` origin before deploying the scanner.
+
+For Vercel Preview Deployments, the scanner automatically accepts only the temporary hostname assigned to that same deployment. Keep Vercel System Environment Variables enabled for this behavior.
 
 Keep `WAITLIST_TRUST_PROXY=false` unless the deployment is behind a trusted proxy/CDN that strips client-supplied forwarded headers. When enabled, `WAITLIST_CLIENT_IP_HEADER` must point to the trusted provider header.
 

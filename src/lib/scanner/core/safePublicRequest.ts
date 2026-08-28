@@ -25,7 +25,7 @@ type SafePublicRequestOptions = {
  * Identifies the scanner without pretending to be a browser. Some public
  * storefront WAFs reject requests that omit User-Agent altogether.
  */
-export const SCANNER_USER_AGENT = "MCP-Bridge-AEO-Scanner/1.0 (+https://landing-mcp-the-bridge.vercel.app/scan)";
+export const SCANNER_USER_AGENT = "MCP-Bridge-AEO-Scanner/1.0 (+https://www.mcp-bridge.com/scan)";
 
 export const createPublicRequestHeaders = (accept: string): Record<string, string> => ({
   Accept: accept,
