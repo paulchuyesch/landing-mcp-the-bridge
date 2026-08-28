@@ -20,10 +20,14 @@ const USE_ACCORDION_SOLUTION_PREVIEW = true;
   <main>
     <Hero client:load />
     <Features />
-    <section class="border-y border-border bg-background-secondary py-12">
+    <section class="border-y border-border bg-background-secondary py-16 md:py-20">
       <div class="container mx-auto px-6 text-center">
-        <p class="text-foreground-muted mb-4">¿Tu tienda está lista para ser entendida por agentes de IA?</p>
-        <a href="/scan" class="btn-primary inline-flex">Analizar mi tienda gratis</a>
+        <h2 class="text-3xl md:text-5xl font-bold tracking-tighter leading-tight text-foreground max-w-4xl mx-auto mb-8">
+          ¿Tu tienda está lista para ser entendida por agentes de IA?
+        </h2>
+        <a href="/scan" class="h-14 md:h-16 px-8 md:px-10 bg-orange-500 text-white text-lg md:text-xl font-bold hover:bg-orange-600 transition-all inline-flex items-center justify-center btn-pulse">
+          Analizar mi tienda gratis
+        </a>
       </div>
     </section>
     <HowItWorks />
